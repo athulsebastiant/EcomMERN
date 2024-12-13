@@ -75,4 +75,4 @@ cartSchema.methods.calculateTotalPrice = async function () {
 const Cart = mongoose.model("Cart", cartSchema);
 
 // Export the model
-module.exports = Cart;
+export default Cart;

@@ -18,6 +18,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
       match: [/^\d{10}$/, "Please enter a valid phone number."],
+      unique: true,
     },
     role: { type: String, default: "customer" },
     createdAt: {
@@ -28,5 +29,6 @@ const userSchema = new mongoose.Schema(
   { timestamps: true, minimize: false }
 );
 
-const User = mongoose.model("User", userSchema);
-module.exports = User;
+const User = mongoose.models.User || mongoose.model("User", userSchema);
+
+export default User;
