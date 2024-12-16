@@ -12,10 +12,9 @@ const productSchema = new mongoose.Schema({
     required: true,
   },
   stock: { type: Number, required: true },
-  date: { type: Number, required: true },
 });
 
 const Product =
   mongoose.models.product || mongoose.model("Product", productSchema);
 
-export default productModel;
+export default Product;
