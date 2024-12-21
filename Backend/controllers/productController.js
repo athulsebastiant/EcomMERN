@@ -80,4 +80,29 @@ const singleProduct = async (req, res) => {
   }
 };
 
-export { listProducts, addProduct, removeProduct, singleProduct };
+const updateProduct = async (req, res) => {
+  try {
+    const updatedProduct = await Product.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {
+        new: true,
+      }
+    );
+
+    if (!updateProduct)
+      return res.status(404).json({ message: "Product not found" });
+
+    res.json({ success: true, updatedProduct });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error });
+  }
+};
+
+export {
+  listProducts,
+  addProduct,
+  removeProduct,
+  singleProduct,
+  updateProduct,
+};
