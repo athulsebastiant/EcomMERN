@@ -1,0 +1,61 @@
+.hidden {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .md\\:block {
+        display: block;
+    }
+}
+
+.custom-navlink {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    /* 12px */
+    border: 1px solid #D1D5DB;
+    /* Gray color */
+    border-right: 0;
+    padding-left: 0.75rem;
+    /* 12px */
+    padding-right: 0.75rem;
+    /* 12px */
+    padding-top: 0.5rem;
+    /* 8px */
+    padding-bottom: 0.5rem;
+    /* 8px */
+    border-top-left-radius: 0.25rem;
+    /* 4px */
+    border-bottom-left-radius: 0.25rem;
+    /* 4px */
+    text-decoration: none;
+    /* Remove underline from NavLink */
+}
+.CombinedSidebar {
+    display: flex;
+    /* Flex layout */
+    flex-direction: column;
+    /* Column direction */
+    gap: 1rem;
+    /* 16px gap between items */
+    padding-top: 1.5rem;
+    /* 24px padding at the top */
+    padding-left: 20%;
+    /* 20% padding on the left */
+    font-size: 15px;
+    /* Font size of 15px */
+}
+
+.SidebarPartition{
+    width: 18%;
+        /* 18% width */
+        min-height: 100vh;
+        /* Full viewport height */
+        border-right-width: 1px;
+        /* 2px right border */
+        border-right-style: solid;
+        /* Solid border style */
+        border-right-color: #D1D5DB;
+        /* Right border color */
+        
+}

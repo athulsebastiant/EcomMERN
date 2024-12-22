@@ -1,0 +1,14 @@
+.logo{
+    width: 110px;
+    height: 40px;
+}
+
+.positioning{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
