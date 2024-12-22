@@ -7,3 +7,22 @@
   display: flex;
   width: 100%;
 }
+
+.Something{
+  width: 70%;
+    /* 70% width */
+    margin-left: auto;
+    margin-right: auto;
+    /* Centers element horizontally */
+    margin-left: max(5vw, 25px);
+    /* Left margin of max(5vw, 25px) */
+    margin-top: 2rem;
+    /* 32px top margin */
+    margin-bottom: 2rem;
+    /* 32px bottom margin */
+    color: #4B5563;
+    /* Medium gray text color */
+    font-size: 1rem;
+    /* 16px font size */
+  
+}
