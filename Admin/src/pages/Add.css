@@ -1,0 +1,21 @@
+.Proimg{
+    width: 50 rem;
+}
+
+.imgContainer{
+    display: flex;
+    gap:0.5 rem
+}
+
+.AddForm{
+    display: flex;
+        /* Flex layout */
+        flex-direction: column;
+        /* Column direction */
+        width: 100%;
+        /* Full width */
+        align-items: flex-start;
+        /* Align items to the start */
+        gap: 0.75rem;
+        /* 12px gap between items */
+}
