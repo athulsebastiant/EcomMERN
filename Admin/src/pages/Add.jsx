@@ -7,6 +7,7 @@ import "./Add.css";
 import axios, { AxiosHeaders } from "axios";
 import { useEffect, useState } from "react";
 import { backendUrl } from "../App";
+import { toast } from "react-toastify";
 const Add = ({ token }) => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -48,17 +49,39 @@ const Add = ({ token }) => {
       formData.append("description", description);
       formData.append("price", price);
       formData.append("stock", stock);
+      formData.append("category", selectedCategory);
 
       image1 && formData.append("image1", image1);
       image2 && formData.append("image2", image2);
       image3 && formData.append("image3", image3);
       image4 && formData.append("image4", image4);
 
-      const response = await axios.post(backendUrl + "/api/product/add", {
-        headers: { token },
-      });
-      console.log(response.data);
-    } catch (error) {}
+      const response = await axios.post(
+        backendUrl + "/api/product/add",
+        formData,
+        {
+          headers: { token },
+        }
+      );
+      // console.log(response.data);
+      if (response.data.success) {
+        toast.success(response.data.message);
+        setName("");
+        setDescription("");
+        setBrand("");
+        setPrice("");
+        setStock("");
+        setImage1(false);
+        setImage2(false);
+        setImage3(false);
+        setImage4(false);
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
   };
 
   return (
