@@ -60,4 +60,37 @@ const updateCategory = async (req, res) => {
   }
 };
 
-export { addCategory, removeCategory, listCategories, updateCategory };
+const singleCategory = async (req, res) => {
+  try {
+    const categoryId = req.params.id;
+
+    // Validate categoryId
+    if (!categoryId) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Category ID is required" });
+    }
+
+    const category = await Category.findById(categoryId);
+
+    // Check if category exists
+    if (!category) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Category not found" });
+    }
+
+    res.status(200).json({ success: true, category: category.name });
+  } catch (error) {
+    console.error("Error fetching category:", error);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+};
+
+export {
+  addCategory,
+  removeCategory,
+  listCategories,
+  updateCategory,
+  singleCategory,
+};

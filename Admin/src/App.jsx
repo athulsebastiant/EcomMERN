@@ -6,7 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import Add from "./pages/Add";
 import Update from "./pages/Update";
 import Remove from "./pages/Remove";
-import List from "./pages/List";
+
 import Login from "./components/Login";
 import { ToastContainer } from "react-toastify";
 export const backendUrl = import.meta.env.VITE_BACKEND_URL;
@@ -35,14 +35,13 @@ function App() {
             <div className="Something">
               <Routes>
                 <Route path="/add" element={<Add token={token} />}></Route>
-                <Route path="/list" element={<List token={token} />}></Route>
-                <Route
-                  path="/remove"
-                  element={<Remove token={token} />}
-                ></Route>
                 <Route
                   path="/update"
                   element={<Update token={token} />}
+                ></Route>
+                <Route
+                  path="/remove"
+                  element={<Remove token={token} />}
                 ></Route>
               </Routes>
             </div>
