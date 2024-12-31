@@ -1,0 +1,11 @@
+.imgDiv{
+    display: "flex";
+            justify-content: "center";
+            align-items: "center";
+            height: 100%;
+}
+
+.img{
+    width: 100%;
+     height: "auto";
+}
