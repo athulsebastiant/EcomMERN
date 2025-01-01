@@ -4,6 +4,7 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import FormatListNumberedIcon from "@mui/icons-material/FormatListNumbered";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import EditIcon from "@mui/icons-material/Edit";
+import AddIcon from "@mui/icons-material/Add";
 import "./Sidebar.css";
 const Sidebar = () => {
   return (
@@ -39,6 +40,18 @@ const Sidebar = () => {
             }}
           />
           <p>Remove Products</p>
+        </NavLink>
+
+        <NavLink to={"/catAdd"} className="custom-navlink">
+          <AddIcon
+            sx={{
+              fontSize: 30,
+              width: "1.25 rem",
+              height: "1.25 rem",
+              color: "green",
+            }}
+          />
+          <p>Add Category</p>
         </NavLink>
       </div>
     </div>

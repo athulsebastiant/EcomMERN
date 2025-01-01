@@ -7,9 +7,9 @@ import { DataGrid } from "@mui/x-data-grid";
 import Paper from "@mui/material/Paper";
 import imgup3 from "../assets/imgup3.png";
 import Button from "@mui/material/Button";
-import { makeStyles } from "@mui/styles";
+
 import { Select, MenuItem } from "@mui/material";
-const useStyles = makeStyles({ editedCell: { backgroundColor: "#ffcccb" } });
+
 const Update = ({ token }) => {
   const [list, setList] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -136,34 +136,12 @@ const Update = ({ token }) => {
       width: 160,
       renderCell: (params) =>
         params.value ? (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100%",
-            }}
-          >
-            <img
-              src={params.value}
-              alt="Image 3"
-              style={{ width: "100%", height: "auto" }}
-            />
+          <div className="imgDiv">
+            <img src={params.value} alt="Image 3" className="img" />
           </div>
         ) : (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100%",
-            }}
-          >
-            <img
-              src={imgup3}
-              alt="Image 3"
-              style={{ width: "100%", height: "auto" }}
-            />
+          <div className="imgDiv">
+            <img src={imgup3} alt="Image 3" className="img" />
           </div>
         ),
     },
@@ -175,34 +153,12 @@ const Update = ({ token }) => {
       width: 160,
       renderCell: (params) =>
         params.value ? (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100%",
-            }}
-          >
-            <img
-              src={params.value}
-              alt="Image 3"
-              style={{ width: "100%", height: "auto" }}
-            />
+          <div className="imgDiv">
+            <img src={params.value} alt="Image 3" className="img" />
           </div>
         ) : (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100%",
-            }}
-          >
-            <img
-              src={imgup3}
-              alt="Image 3"
-              style={{ width: "100%", height: "auto" }}
-            />
+          <div className="imgDiv">
+            <img src={imgup3} alt="Image 3" className="img" />
           </div>
         ),
     },
@@ -214,34 +170,12 @@ const Update = ({ token }) => {
       width: 160,
       renderCell: (params) =>
         params.value ? (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100%",
-            }}
-          >
-            <img
-              src={params.value}
-              alt="Image 3"
-              style={{ width: "100%", height: "auto" }}
-            />
+          <div className="imgDiv">
+            <img src={params.value} alt="Image 3" className="img" />
           </div>
         ) : (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100%",
-            }}
-          >
-            <img
-              src={imgup3}
-              alt="Image 3"
-              style={{ width: "100%", height: "auto" }}
-            />
+          <div className="imgDiv">
+            <img src={imgup3} alt="Image 3" className="img" />
           </div>
         ),
     },
@@ -253,34 +187,12 @@ const Update = ({ token }) => {
       width: 160,
       renderCell: (params) =>
         params.value ? (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100%",
-            }}
-          >
-            <img
-              src={params.value}
-              alt="Image 3"
-              style={{ width: "100%", height: "auto" }}
-            />
+          <div className="imgDiv">
+            <img className="img" />
           </div>
         ) : (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100%",
-            }}
-          >
-            <img
-              src={imgup3}
-              alt="Image 3"
-              style={{ width: "100%", height: "auto" }}
-            />
+          <div className="imgDiv">
+            <img src={imgup3} alt="Image 3" className="img" />
           </div>
         ),
     },

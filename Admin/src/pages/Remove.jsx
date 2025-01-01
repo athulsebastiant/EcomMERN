@@ -120,7 +120,7 @@ const Remove = ({ token }) => {
       renderCell: (params) =>
         params.value ? (
           <div className="imgDiv">
-            <img src={params.value} alt="Image 3" className="img" />
+            <img className="imgDiv" />
           </div>
         ) : (
           <div className="imgDiv">
@@ -219,7 +219,10 @@ const Remove = ({ token }) => {
           rows={rows}
           columns={columns}
           initialState={{ pagination: { paginationModel } }}
-          onSelectionModelChange={(ids) => setSelectedRows(ids)}
+          onRowSelectionModelChange={(ids) => {
+            console.log("Selected IDs:", ids);
+            setSelectedRows(ids);
+          }}
           pageSizeOptions={[5, 10]}
           checkboxSelection
           rowHeight={150}
