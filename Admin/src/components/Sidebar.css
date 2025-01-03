@@ -59,3 +59,20 @@
         /* Right border color */
         
 }
+
+.sidebar-nav{
+    width: 100%;
+}
+
+.dropdown-header {
+    padding: 0.75rem 1rem;
+    transition: background-color 0.3s;
+}
+
+.dropdown-header:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+.nested-list {
+    padding-left: 1rem;
+}
