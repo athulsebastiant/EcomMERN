@@ -10,6 +10,8 @@ import Remove from "./pages/Remove";
 import Login from "./components/Login";
 import { ToastContainer } from "react-toastify";
 import CatAdd from "./pages/CatAdd";
+import CatUpd from "./pages/CatEdit";
+import CatEdit from "./pages/CatEdit";
 export const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 function App() {
@@ -47,6 +49,10 @@ function App() {
                 <Route
                   path="/catAdd"
                   element={<CatAdd token={token} />}
+                ></Route>
+                <Route
+                  path="/catEdit"
+                  element={<CatEdit token={token} />}
                 ></Route>
               </Routes>
             </div>

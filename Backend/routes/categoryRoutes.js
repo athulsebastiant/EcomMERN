@@ -20,7 +20,7 @@ categoryRouter.post("/remove", adminAuth, removeCategory);
 
 categoryRouter.get("/list", listCategories);
 
-categoryRouter.patch("/update", adminAuth, updateCategory);
+categoryRouter.patch("/update/:id", adminAuth, updateCategory);
 
 categoryRouter.get("/single/:id", singleCategory);
 
