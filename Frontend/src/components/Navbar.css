@@ -1,29 +1,126 @@
-.MainNav{
+/* MainNav class for the main navigation container */
+.MainNav {
     display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-top: 1.25rem;
-        padding-bottom: 1.25rem;
-        font-weight: 500;
-}
-.logo{
-    width: 110px;
-        height: 40px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #ffffff;
+    /* White background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
 }
 
-.PageList{
+/* logo class for the logo image */
+.logo {
+    height: 50px;
+    /* Adjust the height as needed */
+}
+
+/* PageList class for the unordered list */
+.PageList {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* NavlinkNB class for the nav links */
+.NavlinkNB {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 1rem;
+    /* Adjust the margin as needed */
+    text-decoration: none;
+    color: #333333;
+    /* Darker gray text */
+    transition: color 0.3s ease-in-out;
+    /* Smooth color transition */
+}
+
+.NavlinkNB p {
+    margin-top: 26px;
+    font-size: 1rem;
+    /* Adjust the font size as needed */
+}
+
+.NavlinkNB:hover {
+    color: #007BFF;
+    /* Change color on hover */
+}
+
+/* hrNB class for the horizontal rule */
+.hrNB {
+    display: none;
+    width: 100%;
+    border: none;
+    height: 2px;
+    /* Adjust the height as needed */
+    background-color: #007BFF;
+    /* Color of the horizontal rule */
+    margin-top: 0.004rem;
+    /* Adjust the margin as needed */
+    transition: width 0.3s ease-in-out;
+    /* Smooth width transition */
+}
+
+.NavlinkNB:hover .hrNB {
+    width: 100%;
     
-            display: none;
-        }
-    
-        @media (min-width: 640px) {
-            .PageList {
-                display: flex;
-                gap: 1.25rem;
-                /* 5 * 0.25rem */
-                font-size: 0.875rem;
-                /* 14px */
-                color: #4a5568;
-                /* text-gray-700 */
-            }
-        }
+    /* Expand to full width on hover */
+}
+
+.SearchButton{
+    display: flex;
+        align-items: center;
+        gap: 10px;
+}
+.person-icon-container {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    padding: 10px;
+    z-index: 1;
+}
+
+.person-icon-container:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item{
+    cursor: pointer;
+
+}
+
+.dropdown-item:hover{
+    color: #007BFF;
+}
+
+.cartCount{
+    position: absolute;
+        right: -5px;
+        bottom: -5px;
+        width: 1rem;
+        /* Equivalent to w-4 in Tailwind */
+        text-align: center;
+        line-height: 1rem;
+        /* Equivalent to leading-4 in Tailwind */
+        background-color: red;
+        /* Equivalent to bg-black in Tailwind */
+        color: white;
+        /* Equivalent to text-white in Tailwind */
+        aspect-ratio: 1 / 1;
+        /* Equivalent to aspect-square in Tailwind */
+        border-radius: 9999px;
+        /* Equivalent to rounded-full in Tailwind */
+        font-size: 8px;
+        /* Equivalent to text-[8px] in Tailwind */
+    }
