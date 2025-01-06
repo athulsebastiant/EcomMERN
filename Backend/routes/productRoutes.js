@@ -5,6 +5,7 @@ import {
   removeProduct,
   singleProduct,
   updateProduct,
+  getProductsByCategory,
 } from "../controllers/productController.js";
 
 import upload from "../middleware/multer.js";
@@ -28,5 +29,6 @@ productRouter.patch("/update/:id", adminAuth, updateProduct);
 
 productRouter.post("/single", singleProduct);
 productRouter.get("/list", listProducts);
+productRouter.get("/list-with-category", getProductsByCategory);
 
 export default productRouter;

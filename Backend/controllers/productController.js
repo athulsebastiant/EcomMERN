@@ -99,10 +99,48 @@ const updateProduct = async (req, res) => {
   }
 };
 
+const getProductsByCategory = async (req, res) => {
+  try {
+    const { category } = req.body;
+
+    // Input validation
+    if (!category) {
+      return res.status(400).json({
+        success: false,
+        message: "Category is required",
+      });
+    }
+
+    // Find all products matching the category
+    const products = await Product.find({ category });
+
+    // If no products found
+    if (!products || products.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: "No products found in this category",
+      });
+    }
+
+    res.json({
+      success: true,
+      count: products.length,
+      products,
+    });
+  } catch (error) {
+    console.error("Error fetching products by category:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error fetching products",
+      error: error.message,
+    });
+  }
+};
 export {
   listProducts,
   addProduct,
   removeProduct,
   singleProduct,
   updateProduct,
+  getProductsByCategory,
 };
