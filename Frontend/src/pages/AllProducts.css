@@ -111,9 +111,24 @@ position: absolute;
 .forProds{
     display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        /* Two columns of equal width */
+        /* Two columns by default */
         gap: 1rem;
         /* Horizontal and vertical gap */
         row-gap: 1.5rem;
         /* Vertical gap */
+
+}
+
+@media (min-width: 768px) {
+    .forProds {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        /* Three columns for medium screens and up */
+    }
+}
+
+@media (min-width: 1024px) {
+    .forProds {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        /* Four columns for large screens and up */
+    }
 }

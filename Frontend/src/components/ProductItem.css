@@ -1,0 +1,49 @@
+.proLink
+    {
+            color: #374151;
+            /* Tailwind's gray-700 */
+            cursor: pointer;
+}
+
+.forImg{
+    overflow: hidden;
+}
+
+.proImg{
+    /* styles.css */
+        
+            width: 200px;
+            /* Sets the width of the image */
+            height: 200px;
+            /* Sets the height of the image */
+            object-fit: cover;
+            /* Ensures the image covers the container without distortion */
+            border-radius: 8px;
+            /* Adds rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Adds a subtle shadow for a 3D effect */
+            transition: transform 0.3s ease-in-out;
+            /* Smooth hover effect */
+}
+
+.proImg:hover{
+    transform: scale(1.1);
+}
+
+.pName{
+padding-top: 0.75rem;
+    /* Tailwind's pt-3 */
+    padding-bottom: 0.25rem;
+    /* Tailwind's pb-1 */
+    font-size: 0.875rem;
+    /* Tailwind's text-sm */
+}
+
+.disPrice{
+   
+
+        font-size: 0.875rem;
+            /* Tailwind's text-sm */
+            font-weight: 500;
+            /* Tailwind's font-medium */
+}

@@ -4,16 +4,20 @@ import { backendUrl } from "../App";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "./AllProducts.css";
+import ProductItem from "../components/ProductItem";
 const AllProducts = () => {
   const [list, setList] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState([]);
+  const [selectedBrand, setSelectedBrand] = useState([]);
+
   const [brands, setBrands] = useState([]);
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
   const fetchList = async () => {
     try {
       const response = await axios.get(backendUrl + "/api/product/list");
-      console.log(backendUrl);
+      //console.log(backendUrl);
       if (response.data.success) {
         // Store products with category IDs only
         console.log(response.data.products);
@@ -40,14 +44,81 @@ const AllProducts = () => {
     }
   };
 
+  const fetchBrands = async () => {
+    try {
+      const response = await axios.get(backendUrl + "/api/product/get-brands");
+      //console.log(backendUrl);
+      if (response.data.success) {
+        // Store products with category IDs only
+        console.log(response.data.brands);
+        setBrands(response.data.brands);
+        console.log("Brand");
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
+  };
+
   useEffect(() => {
     fetchList();
     fetchCategories();
+    fetchBrands();
   }, []);
   useEffect(() => {
     setFilterProducts(list); // Update filtered products when `list` changes
   }, [list]);
 
+  const toggleCategory = (e) => {
+    if (selectedCategory.includes(e.target.value)) {
+      setSelectedCategory((prev) =>
+        prev.filter((item) => item !== e.target.value)
+      );
+    } else {
+      setSelectedCategory((prev) => [...prev, e.target.value]);
+    }
+  };
+
+  const toggleBrand = (e) => {
+    if (selectedBrand.includes(e.target.value)) {
+      setSelectedBrand((prev) =>
+        prev.filter((item) => item !== e.target.value)
+      );
+    } else {
+      setSelectedBrand((prev) => [...prev, e.target.value]);
+    }
+  };
+
+  const applyFilter = () => {
+    let productsCopy = list.slice();
+
+    if (selectedCategory.length > 0) {
+      productsCopy = productsCopy.filter((item) =>
+        selectedCategory.includes(item.category)
+      );
+    }
+
+    if (selectedBrand.length > 0) {
+      productsCopy = productsCopy.filter((item) =>
+        selectedBrand.includes(item.brand)
+      );
+    }
+    setFilterProducts(productsCopy);
+  };
+
+  useEffect(() => {
+    applyFilter();
+  }, [selectedCategory, selectedBrand]);
+
+  useEffect(() => {
+    console.log(selectedCategory);
+  }, [selectedCategory]);
+
+  useEffect(() => {
+    console.log(selectedBrand);
+  }, [selectedBrand]);
   return (
     <div className="AllPMDiv">
       <div className="forFilter">
@@ -57,33 +128,34 @@ const AllProducts = () => {
         <div className={`categoryFil`}>
           <p className="catText">CATEGORIES</p>
           <div className="divInCatText">
-            <p className="pInCatText">
-              <input type="checkbox" style={{ width: "0.75rem" }} value={""} />{" "}
-              Cat 1
-            </p>
-            <p className="pInCatText">
-              <input type="checkbox" style={{ width: "0.75rem" }} value={""} />{" "}
-              Cat 2
-            </p>
-            <p className="pInCatText">
-              <input type="checkbox" style={{ width: "0.75rem" }} value={""} />{" "}
-              Cat 3
-            </p>
+            {categories.map((category) => (
+              <p className="pInCatText" key={category._id}>
+                <input
+                  type="checkbox"
+                  style={{ width: "0.75rem" }}
+                  value={category._id}
+                  onChange={toggleCategory}
+                />{" "}
+                {category.name}
+              </p>
+            ))}
           </div>
         </div>
         {/*SubCategory Filter*/}
         <div className={`categoryFil`}>
           <p className="catText">BRANDS</p>
           <div className="divInCatText">
-            <p className="pInCatText">
-              <input type="checkbox" style={{ width: "0.75rem" }} /> Brand 1
-            </p>
-            <p className="pInCatText">
-              <input type="checkbox" style={{ width: "0.75rem" }} /> Brand 2
-            </p>
-            <p className="pInCatText">
-              <input type="checkbox" style={{ width: "0.75rem" }} /> Brand 3
-            </p>
+            {brands.map((brand, index) => (
+              <p className="pInCatText" key={index}>
+                <input
+                  type="checkbox"
+                  style={{ width: "0.75rem" }}
+                  value={brand}
+                  onChange={toggleBrand}
+                />{" "}
+                {brand}
+              </p>
+            ))}
           </div>
         </div>
       </div>
@@ -96,7 +168,17 @@ const AllProducts = () => {
           <option value="High-Low">Sort by: High-Low</option>
         </select>
         {/* Map Products */}
-        <div className="forProds"></div>
+        <div className="forProds">
+          {filterProducts.map((item, index) => (
+            <ProductItem
+              key={index}
+              name={item.name}
+              id={item._id}
+              price={item.price}
+              image={item.image}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
