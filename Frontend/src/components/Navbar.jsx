@@ -15,8 +15,8 @@ const Navbar = () => {
           <p>HOME</p>
           <hr className="hrNB" />
         </NavLink>
-        <NavLink to="/a" className="NavlinkNB">
-          <p>Home2</p>
+        <NavLink to="/all-products" className="NavlinkNB">
+          <p>ALL PRODUCTS</p>
           <hr className="hrNB" />
         </NavLink>
         <NavLink to="/b" className="NavlinkNB">

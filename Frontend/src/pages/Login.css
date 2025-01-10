@@ -1,0 +1,39 @@
+.loginForm{
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        max-width: 24rem;
+        /* Adjust according to sm:max-w-96 in Tailwind */
+        margin: auto;
+        margin-top: 3.5rem;
+        gap: 1rem;
+        color: #2d3748;
+        /* Corresponds to text-gray-800 */
+}
+
+.loginMainDiv{
+    display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        /* Assuming gap-2 is 0.5rem */
+        margin-bottom: 0.5rem;
+        /* Assuming mb-2 is 0.5rem */
+        margin-top: 2.5rem;
+        /* Assuming mt-10 is 2.5rem */
+}
+
+.loginP{
+font-family: 'Prata', serif;
+    /* Prata regular font */
+    font-size: 1.875rem;
+}
+
+.hrLogin{
+    border: none;
+        height: 1.5px;
+        width: 2rem;
+        /* Assuming w-8 corresponds to 2rem */
+        background-color: #2d3748;
+        /* Corresponds to bg-gray-800 */
+}

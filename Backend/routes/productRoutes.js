@@ -6,6 +6,7 @@ import {
   singleProduct,
   updateProduct,
   getProductsByCategory,
+  getUniqueBrands,
 } from "../controllers/productController.js";
 
 import upload from "../middleware/multer.js";
@@ -30,5 +31,5 @@ productRouter.patch("/update/:id", adminAuth, updateProduct);
 productRouter.post("/single", singleProduct);
 productRouter.get("/list", listProducts);
 productRouter.get("/list-with-category", getProductsByCategory);
-
+productRouter.get("/get-brands", getUniqueBrands);
 export default productRouter;

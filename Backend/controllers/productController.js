@@ -136,6 +136,24 @@ const getProductsByCategory = async (req, res) => {
     });
   }
 };
+
+const getUniqueBrands = async (req, res) => {
+  try {
+    // Use Mongoose's distinct method to fetch unique brand names
+    const uniqueBrands = await Product.distinct("brand");
+    res.status(200).json({
+      success: true,
+      brands: uniqueBrands,
+    });
+  } catch (error) {
+    console.error("Error fetching unique brands:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch unique brands",
+      error: error.message,
+    });
+  }
+};
 export {
   listProducts,
   addProduct,
@@ -143,4 +161,5 @@ export {
   singleProduct,
   updateProduct,
   getProductsByCategory,
+  getUniqueBrands,
 };
