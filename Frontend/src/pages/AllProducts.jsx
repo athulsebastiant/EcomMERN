@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import axios from "axios";
 import { backendUrl } from "../App";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "./AllProducts.css";
 import ProductItem from "../components/ProductItem";
+import { ShopContext } from "../context/ShopContext";
 const AllProducts = () => {
   const [list, setList] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState([]);
   const [selectedBrand, setSelectedBrand] = useState([]);
-
+  const { search } = useContext(ShopContext);
   const [brands, setBrands] = useState([]);
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
+  const [sortType, setSortType] = useState("Relevant");
   const fetchList = async () => {
     try {
       const response = await axios.get(backendUrl + "/api/product/list");
@@ -94,6 +96,14 @@ const AllProducts = () => {
   const applyFilter = () => {
     let productsCopy = list.slice();
 
+    if (search) {
+      productsCopy = productsCopy.filter(
+        (item) =>
+          item.name.toLowerCase().includes(search.toLowerCase()) ||
+          item.brand.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
     if (selectedCategory.length > 0) {
       productsCopy = productsCopy.filter((item) =>
         selectedCategory.includes(item.category)
@@ -108,9 +118,28 @@ const AllProducts = () => {
     setFilterProducts(productsCopy);
   };
 
+  const sortProduct = () => {
+    let fpCopy = filterProducts.slice();
+    switch (sortType) {
+      case "Low-High":
+        setFilterProducts(fpCopy.sort((a, b) => a.price - b.price));
+        break;
+      case "High-Low":
+        setFilterProducts(fpCopy.sort((a, b) => b.price - a.price));
+        break;
+      default:
+        applyFilter();
+        break;
+    }
+  };
+
   useEffect(() => {
     applyFilter();
-  }, [selectedCategory, selectedBrand]);
+  }, [selectedCategory, selectedBrand, search]);
+
+  useEffect(() => {
+    sortProduct();
+  }, [sortType]);
 
   useEffect(() => {
     console.log(selectedCategory);
@@ -162,7 +191,10 @@ const AllProducts = () => {
       {/* Right Side */}
       <div className="rightDiv">
         <h2>ALL COLLECTIONS</h2>
-        <select className="sortSel">
+        <select
+          className="sortSel"
+          onChange={(e) => setSortType(e.target.value)}
+        >
           <option value="Relevant">Sort by: Relevant</option>
           <option value="Low-High">Sort by: Low-High</option>
           <option value="High-Low">Sort by: High-Low</option>

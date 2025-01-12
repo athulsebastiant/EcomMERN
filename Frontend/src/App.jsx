@@ -9,11 +9,13 @@ import PlaceOrder from "./pages/PlaceOrder";
 import Navbar from "./components/Navbar";
 import AllProducts from "./pages/AllProducts";
 import ProductItem from "./components/ProductItem";
+import Searchbar from "./components/Searchbar";
 export const backendUrl = import.meta.env.VITE_BACKEND_URL;
 const App = () => {
   return (
     <div className="MainDivApp">
       <Navbar />
+      <Searchbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:productId" element={<Product />} />
