@@ -1,0 +1,150 @@
+.product-gallery-container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+.thumbnail-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    /* Increased gap */
+    width: 150px;
+    /* Increased from 100px */
+}
+
+.thumbnail-wrapper {
+    width: 150px;
+    /* Increased from 100% */
+    height: 150px;
+    /* Added explicit height */
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.thumbnail-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-image-container {
+    flex: 1;
+    max-width: 450px;
+    /* Increased from 350px */
+}
+
+.main-image-wrapper {
+    width: 450px;
+    /* Increased from 350px */
+    height: 477px;
+    /* Increased from 350px */
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}/* Responsive adjustments */
+@media (max-width: 768px) {
+    .product-gallery-container {
+        flex-direction: column-reverse;
+    }
+
+    .thumbnail-column {
+        flex-direction: row;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .thumbnail-wrapper {
+        min-width: 80px;
+    }
+}
+
+.ProHead{
+    font-weight: 500;
+        /* Medium font weight */
+        font-size: 1.5rem;
+        /* 2xl size */
+        margin-top: 0.5rem;
+}
+
+.insideProData{
+display: flex;
+    /* Flexbox layout */
+    align-items: center;
+    /* Center alignment of items */
+    gap: 0.25rem;
+    /* 1 gap */
+    margin-top: 0.5rem;
+    /* Margin top 2 */
+}
+
+.DivforStuff{
+    display: flex;
+        /* Flexbox layout */
+        flex-direction: column;
+        /* Column direction */
+        gap: 1rem;
+        /* Gap 4 */
+        margin-top: 2rem;
+        /* Margin top 8 */
+        margin-bottom: 2rem;
+        /* Margin bottom 8 */
+}
+
+.someStuff{font-size: 0.875rem;
+    /* Small text size (sm) */
+    color: #6b7280;
+    /* Gray 500 */
+    margin-top: 1.25rem;
+    /* Margin top 5 */
+    display: flex;
+    /* Flexbox layout */
+    flex-direction: column;
+    /* Column direction */
+    gap: 0.25rem;
+}
+
+.brand-sticker {
+    background-color: #e0f7fa;
+    /* Light teal background */
+    color: #00796b;
+    /* Teal text color */
+    padding: 0.5rem 1rem;
+    /* Padding around text */
+    border-radius: 12px;
+    /* Rounded corners */
+    border: 2px solid #ffeb3b;
+    /* Yellow border for sticker effect */
+    display: inline-block;
+    /* Inline-block for sticker-like appearance */
+    font-weight: bold;
+    /* Bold text */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+}
+
+.stock-info {
+        width: 15px;
+        padding: 8px 15px;
+        border-radius: 25px;
+        font-weight: bold;
+        font-size: 14px;
+        ;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        background: #FFD700;
+            color: #000;
+            border: 2px solid #FFA500;
+}

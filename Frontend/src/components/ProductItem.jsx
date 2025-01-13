@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./ProductItem.css";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { ShopContext } from "../context/ShopContext";
 const ProductItem = ({ id, image, name, price }) => {
-  const currency = "$";
+  const { currency } = useContext(ShopContext);
   const ProductCard = styled(Card)(({ theme }) => ({
     height: "100%",
     display: "flex",
