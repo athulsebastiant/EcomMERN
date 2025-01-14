@@ -103,18 +103,7 @@ display: flex;
         /* Margin bottom 8 */
 }
 
-.someStuff{font-size: 0.875rem;
-    /* Small text size (sm) */
-    color: #6b7280;
-    /* Gray 500 */
-    margin-top: 1.25rem;
-    /* Margin top 5 */
-    display: flex;
-    /* Flexbox layout */
-    flex-direction: column;
-    /* Column direction */
-    gap: 0.25rem;
-}
+
 
 .brand-sticker {
     background-color: #e0f7fa;

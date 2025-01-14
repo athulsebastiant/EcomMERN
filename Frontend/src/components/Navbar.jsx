@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Navbar.css";
 import elcorpLogo from "../assets/elcorp.png";
 import { NavLink } from "react-router-dom";
@@ -6,7 +6,9 @@ import SearchIcon from "@mui/icons-material/Search";
 import PersonIcon from "@mui/icons-material/Person";
 import { Link } from "react-router-dom";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { ShopContext } from "../context/ShopContext";
 const Navbar = () => {
+  const { getCartCount } = useContext(ShopContext);
   return (
     <div className="MainNav">
       <img className="logo" src={elcorpLogo} alt="logo" />
@@ -42,7 +44,7 @@ const Navbar = () => {
         </div>
         <Link to="/cart" style={{ position: "relative" }}>
           <ShoppingCartIcon sx={{ color: "#007BFF" }} />
-          <p className="cartCount">7</p>
+          <p className="cartCount">{getCartCount()}</p>
         </Link>
       </div>
     </div>

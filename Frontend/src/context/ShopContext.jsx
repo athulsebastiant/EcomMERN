@@ -1,5 +1,7 @@
-import { createContext, useState } from "react";
-
+import { createContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import axios from "axios";
+import { backendUrl } from "../App";
 export const ShopContext = createContext();
 
 const ShopContextProvider = (props) => {
@@ -7,6 +9,52 @@ const ShopContextProvider = (props) => {
   const delivery_fee = 10;
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(true);
+  const [cartItems, setCartItems] = useState({});
+  const [productList, setProductList] = useState([]);
+
+  const fetchList = async () => {
+    try {
+      const response = await axios.get(backendUrl + "/api/product/list");
+      //console.log(backendUrl);
+      if (response.data.success) {
+        // Store products with category IDs only
+
+        setProductList(response.data.products);
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
+  };
+  useEffect(() => {
+    fetchList();
+  }, []);
+
+  const addToCart = async (itemId) => {
+    let cartData = structuredClone(cartItems);
+    if (cartData[itemId]) {
+      cartData[itemId] += 1;
+    } else {
+      cartData[itemId] = {};
+      cartData[itemId] = 1;
+    }
+    setCartItems(cartData);
+  };
+
+  const getCartCount = () => {
+    let totalCount = 0;
+    for (const items in cartItems) {
+      totalCount += cartItems[items];
+    }
+    return totalCount;
+  };
+
+  useEffect(() => {
+    console.log(cartItems);
+  }, [cartItems]);
+
   const value = {
     currency,
     delivery_fee,
@@ -14,6 +62,10 @@ const ShopContextProvider = (props) => {
     setSearch,
     showSearch,
     setShowSearch,
+    cartItems,
+    addToCart,
+    getCartCount,
+    productList,
   };
   return (
     <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>

@@ -1,0 +1,60 @@
+.CartMainDiv{
+    border-top: 1px solid;
+        /* Adjust the value according to your needs */
+        padding-top: 3.5rem;
+}
+
+.CartSecDiv{
+    
+            font-size: 1.5rem;
+            /* This is equivalent to text-2xl in Tailwind CSS */
+            margin-bottom: 0.75rem;
+}
+
+.forProduc{
+    padding-top: 1rem;
+        padding-bottom: 1rem;
+        /* This is equivalent to py-4 in Tailwind CSS */
+        border-top: 1px solid;
+        /* Adjust the value according to your needs */
+        color: #4a5568;
+        /* This is equivalent to text-gray-700 in Tailwind CSS */
+        display: grid;
+        grid-template-columns: 4fr 0.5fr 0.5fr;
+        /* This is equivalent to grid-cols-[4fr_0.5fr_0.5fr] in Tailwind CSS */
+        align-items: center;
+        /* This is equivalent to items-center in Tailwind CSS */
+        gap: 1rem
+}
+
+.prodSecDiv{
+    display: flex;
+        /* This is equivalent to flex in Tailwind CSS */
+        align-items: flex-start;
+        /* This is equivalent to items-start in Tailwind CSS */
+        gap: 1.5rem;
+}
+
+.otherProDets{
+    display: flex;
+        /* This is equivalent to flex in Tailwind CSS */
+        align-items: center;
+        /* This is equivalent to items-center in Tailwind CSS */
+        gap: 1.25rem;
+        /* This is equivalent to gap-5 in Tailwind CSS */
+        margin-top: 0.5rem;
+}
+
+.qtyBox{
+    border: 1px solid;
+        /* This is equivalent to border in Tailwind CSS */
+        max-width: 2.5rem;
+        /* This is equivalent to max-w-10 in Tailwind CSS */
+        padding-left: 0.25rem;
+        /* This is equivalent to px-1 in Tailwind CSS */
+        padding-right: 0.25rem;
+        /* This is equivalent to px-1 in Tailwind CSS */
+        padding-top: 0.25rem;
+        /* This is equivalent to py-1 in Tailwind CSS */
+        padding-bottom: 0.25rem
+}

@@ -11,7 +11,7 @@ const Product = () => {
   const [list, setList] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(false);
   const [image, setImage] = useState("");
-  const { currency } = useContext(ShopContext);
+  const { currency, addToCart } = useContext(ShopContext);
   const fetchList = async () => {
     try {
       const response = await axios.get(backendUrl + "/api/product/list");
@@ -91,6 +91,7 @@ const Product = () => {
           {selectedProduct.description}
         </p>
         <Button
+          onClick={() => addToCart(selectedProduct._id)}
           variant="contained"
           sx={{
             backgroundColor: "#00796b",
@@ -100,12 +101,7 @@ const Product = () => {
         >
           ADD TO CART
         </Button>
-        <hr style={{ marginTop: "8.8rem" }} />
-        <div className="someStuff">
-          <p>100% Original Product</p>
-          <p>Cash on delivery is available</p>
-          <p>Easy return and exchange policy within 7 days</p>
-        </div>
+        <hr style={{ marginTop: "9rem" }} />
       </div>
     </div>
   ) : (
