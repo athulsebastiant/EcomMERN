@@ -1,40 +1,24 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Cart.css";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { ShopContext } from "../context/ShopContext";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { backendUrl } from "../App";
 const Cart = () => {
-  //const [list, setList] = useState([]);
-  const { currency, cartItems, productList } = useContext(ShopContext);
+  const { currency, cartItems, productList, updateQuantity } =
+    useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
-  // const fetchList = async () => {
-  //   try {
-  //     const response = await axios.get(backendUrl + "/api/product/list");
-  //     //console.log(backendUrl);
-  //     if (response.data.success) {
-  //       // Store products with category IDs only
-
-  //       setList(response.data.products);
-  //     } else {
-  //       toast.error(response.data.message);
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //     toast.error(error.message);
-  //   }
-  // };
-  // useEffect(() => {
-  //   fetchList();
-  // }, []);
 
   useEffect(() => {
     const tempData = [];
     for (const items in cartItems) {
-      tempData.push({
-        _id: items,
-        quantity: cartItems[items],
-      });
+      if (cartItems[items] > 0) {
+        tempData.push({
+          _id: items,
+          quantity: cartItems[items],
+        });
+      }
     }
     setCartData(tempData);
     // console.log("ts", tempData);
@@ -66,10 +50,10 @@ const Cart = () => {
                 <img
                   src={productData.image[0]}
                   alt=""
-                  style={{ width: "4rem" }}
+                  style={{ width: "6rem", height: "6rem" }}
                 />
                 <div>
-                  <p style={{ fontSize: "0.75rem", fontWeight: "500" }}>
+                  <p style={{ fontSize: "1rem", fontWeight: "500" }}>
                     {productData.name}
                   </p>
                   <div className="otherProDets">
@@ -81,11 +65,20 @@ const Cart = () => {
                 </div>
               </div>
               <input
+                onChange={(e) =>
+                  e.target.value === "" || e.target.value === "0"
+                    ? null
+                    : updateQuantity(item._id, Number(e.target.value))
+                }
                 className="qtyBox"
                 type="number"
                 min={1}
                 defaultValue={item.quantity}
               />
+              <DeleteIcon
+                onClick={() => updateQuantity(item._id, 0)}
+                sx={{ marginRight: "1rem", cursor: "pointer", color: "red" }}
+              ></DeleteIcon>
             </div>
           );
         })}
