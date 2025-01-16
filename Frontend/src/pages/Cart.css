@@ -58,3 +58,12 @@
         /* This is equivalent to py-1 in Tailwind CSS */
         padding-bottom: 0.25rem
 }
+
+.forTots{
+    display: flex;
+        justify-content: flex-end;
+        margin-top: 5rem;
+        /* 80px */
+        margin-bottom: 5rem;
+        /* 80px */
+}

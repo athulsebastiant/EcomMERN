@@ -5,8 +5,10 @@ import { ShopContext } from "../context/ShopContext";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { backendUrl } from "../App";
+import CartTotal from "../components/CartTotal";
+import Button from "@mui/material/Button";
 const Cart = () => {
-  const { currency, cartItems, productList, updateQuantity } =
+  const { currency, cartItems, productList, updateQuantity, navigate } =
     useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
 
@@ -77,11 +79,33 @@ const Cart = () => {
               />
               <DeleteIcon
                 onClick={() => updateQuantity(item._id, 0)}
-                sx={{ marginRight: "1rem", cursor: "pointer", color: "red" }}
+                sx={{ marginRight: "1rem", cursor: "pointer", color: "red " }}
               ></DeleteIcon>
             </div>
           );
         })}
+      </div>
+      <div className="forTots">
+        <div style={{ width: "100%" }}>
+          <CartTotal />
+          <div style={{ width: "100%", textAlign: "end" }}></div>
+          <Button
+            onClick={() => navigate("/place-order")}
+            variant="contained"
+            sx={{
+              width: "275px",
+              marginLeft: "74.5rem",
+              marginTop: "2rem",
+              /* 32px */ marginBottom: "2rem",
+              /* 32px */ paddingLeft: "2rem",
+              /* 32px */ paddingRight: "2rem",
+              /* 32px */ paddingTop: "0.75rem",
+              /* 12px */ paddingBottom: "0.75rem" /* 12px */,
+            }}
+          >
+            PROCEED TO CHECKOUT
+          </Button>
+        </div>
       </div>
     </div>
   );

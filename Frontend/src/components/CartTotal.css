@@ -1,0 +1,82 @@
+.mainCarTTdiv {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+h4 {
+    color: #2d3436;
+    margin-bottom: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.STot,
+.ShipFee,
+.Tot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+}
+
+.STot p,
+.ShipFee p {
+    color: #4a5568;
+    margin: 0;
+    font-size: 1rem;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #e2e8f0;
+    margin: 0.25rem 0;
+}
+
+.Tot {
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    border-top: 2px solid #e2e8f0;
+}
+
+.Tot b {
+    font-size: 1.25rem;
+    color: #2d3436;
+}
+
+/* Amount values alignment and styling */
+.STot p:last-child,
+.ShipFee p:last-child,
+.Tot b:last-child {
+    font-family: 'Monaco', 'Consolas', monospace;
+    min-width: 80px;
+    text-align: right;
+}
+
+/* Hover effects for better interactivity */
+.mainCarTTdiv:hover {
+    border-color: #cbd5e0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    transition: all 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .mainCarTTdiv {
+        padding: 1rem;
+    }
+
+    h4 {
+        font-size: 1.5rem;
+    }
+
+    .STot p,
+    .ShipFee p,
+    .Tot b {
+        font-size: 0.95rem;
+    }
+}
