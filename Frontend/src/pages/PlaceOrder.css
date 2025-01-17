@@ -1,31 +1,32 @@
-.MainPlaceOrderDiv{
-    display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 1rem;
-        /* 16px */
-        padding-top: 1.25rem;
-        /* 20px */
-        min-height: 80vh;
-        border-top: 1px solid;
-        /* Add your desired border color */
+.MainPlaceOrderDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  
+  padding-top: 1.25rem;
+  min-height: 80vh;
+  border-top: 1px solid;
 }
 
-.POsecDiv{
-    display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        /* 16px */
-        width: 100%;
+.POsecDiv {
+display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 50%;
+    /* Set width explicitly */
+    flex-shrink: 0;
+    /* Prevent shrinking beyond the specified width */
+    flex-grow: 0;
 }
 
-.leftSideDiv{
-    font-size: 1.25rem;
-        /* 20px */
-        line-height: 1.75rem;
-        /* 28px */
-        margin-top: 0.75rem;
-        /* 12px */
-        margin-bottom: 0.75rem;
-        /* 12px */
+.leftSideDiv {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-top: 0.75rem;
+
+    width: 100%;
+  margin-bottom: 0.75rem;
 }
+
