@@ -1,32 +1,124 @@
-.MainPlaceOrderDiv {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 1rem;
-  align-items: flex-start;
-  
-  padding-top: 1.25rem;
-  min-height: 80vh;
-  border-top: 1px solid;
+.place-order-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
-.POsecDiv {
-display: flex;
+.order-content {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.delivery-section {
+  flex: 1;
+  min-width: 320px;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.payment-total-section {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  
+}
+
+.section-header {
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 0.5rem;
+}
+
+.section-header h4 {
+  color: #333;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.form-field {
+  flex: 1;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.cart-total {
+  
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.payment-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.payment-options {
+  display: flex;
     flex-direction: column;
     gap: 1rem;
-    width: 50%;
-    /* Set width explicitly */
-    flex-shrink: 0;
-    /* Prevent shrinking beyond the specified width */
-    flex-grow: 0;
+    margin-top: 1rem;
 }
 
-.leftSideDiv {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  margin-top: 0.75rem;
+@media (max-width: 768px) {
+  .order-content {
+    flex-direction: column;
+  }
 
+  .payment-total-section {
     width: 100%;
-  margin-bottom: 0.75rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
 
+.payment-option-single {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.payment-option-single:hover {
+  border-color: #79cf7c;
+    background-color: #e8f5e9;
+}
+
+.payment-option-single img {
+  object-fit: contain;
+}
+
+.payment-option-single p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.payment-option-selected {
+  border-color: #44b546;
+  background-color: #7aeb85;
+}
