@@ -20,11 +20,12 @@
 }
 
 .payment-total-section {
+  
   width: 400px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  
+
 }
 
 .section-header {
@@ -53,13 +54,18 @@
 .full-width {
   width: 100%;
 }
+.cart-total h4 {
+  margin-top: 0;
+  /* Remove top margin from the h4 */
+  padding-top: 0;
+  /* Remove top padding from the h4 */
+}
 
 .cart-total {
-  
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 0;
+  /* Remove top margin from the container */
+  padding-top: 1rem;
+  /* Reduce top padding */
 }
 
 .payment-section {
@@ -71,9 +77,9 @@
 
 .payment-options {
   display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1rem;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -104,7 +110,7 @@
 
 .payment-option-single:hover {
   border-color: #79cf7c;
-    background-color: #e8f5e9;
+  background-color: #e8f5e9;
 }
 
 .payment-option-single img {
@@ -120,5 +126,5 @@
 
 .payment-option-selected {
   border-color: #44b546;
-  background-color: #7aeb85;
+  border-width: 7px;
 }

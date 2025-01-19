@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import TextField from "@mui/material/TextField";
 import CartTotal from "../components/CartTotal";
 import image from "../assets/Razorpay_logo.png";
 import "./PlaceOrder.css";
+import Button from "@mui/material/Button";
+import { ShopContext } from "../context/ShopContext";
 const PlaceOrder = () => {
   const [method, setMethod] = useState("cod");
   const select = "payment-option-selected";
+  const { navigate } = useContext(ShopContext);
   return (
     <div className="place-order-container">
       <div className="order-content">
@@ -95,6 +98,9 @@ const PlaceOrder = () => {
               >
                 <p>CASH ON DELIVERY</p>
               </div>
+              <Button onClick={() => navigate("/orders")} variant="contained">
+                Place Order
+              </Button>
             </div>
           </div>
         </div>

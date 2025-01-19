@@ -13,6 +13,7 @@ const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
   const [productList, setProductList] = useState([]);
   const navigate = useNavigate();
+  const [token, setToken] = useState("");
   const fetchList = async () => {
     try {
       const response = await axios.get(backendUrl + "/api/product/list");
@@ -87,6 +88,8 @@ const ShopContextProvider = (props) => {
     updateQuantity,
     getCartAmount,
     navigate,
+    token,
+    setToken,
   };
   return (
     <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>
