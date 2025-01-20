@@ -1,35 +1,60 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Login.css";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { ShopContext } from "../context/ShopContext";
 import { backendUrl } from "../App";
 import axios from "axios";
+import { toast } from "react-toastify";
 const Login = () => {
-  const [currentState, setCurrentState] = useState("Sign Up");
+  const [currentState, setCurrentState] = useState("Login");
   const { token, setToken, navigate } = useContext(ShopContext);
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
 
   const onSubmitHandler = async (event) => {
     console.log("boo");
     event.preventDefault();
     try {
       if (currentState === "Sign Up") {
-        console.log(name, email, phone, password);
+        console.log(name, email, phoneNumber, password);
         const response = await axios.post(backendUrl + "/api/user/register", {
           name,
           email,
-          phone,
+          phoneNumber,
           password,
         });
-        console.log(response.data);
+        if (response.data.success) {
+          setToken(response.data.token);
+          localStorage.setItem("token", response.data.token);
+        } else {
+          toast.error(response.data.message);
+        }
       } else {
+        const response = await axios.post(backendUrl + "/api/user/login", {
+          email,
+          password,
+        });
+        if (response.data.success) {
+          setToken(response.data.token);
+          localStorage.setItem("token", response.data.token);
+        } else {
+          toast.error(response.data.message);
+        }
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log("Error:", error);
+      toast.error(error.message);
+    }
   };
+
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  }, [token]);
 
   return (
     <form className="loginForm" onSubmit={onSubmitHandler}>
@@ -52,12 +77,12 @@ const Login = () => {
 
           <TextField
             id="outlined-basic"
-            label="Phone Number"
+            label="PhoneNumber Number"
             variant="outlined"
             type="number"
             required
-            onChange={(e) => setPhone(e.target.value)}
-            value={phone}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            value={phoneNumber}
           />
         </>
       )}
@@ -94,7 +119,7 @@ const Login = () => {
           Login Here
         </p>
       )}
-      <Button variant="contained">
+      <Button variant="contained" type="submit">
         {currentState === "Login" ? "Sign In" : "Sign Up"}
       </Button>
     </form>

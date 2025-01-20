@@ -8,7 +8,15 @@ import { Link } from "react-router-dom";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { ShopContext } from "../context/ShopContext";
 const Navbar = () => {
-  const { getCartCount } = useContext(ShopContext);
+  const { getCartCount, navigate, token, setToken, setCartItems } =
+    useContext(ShopContext);
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setToken("");
+    setCartItems({});
+    navigate("/login");
+  };
   return (
     <div className="MainNav">
       <img className="logo" src={elcorpLogo} alt="logo" />
@@ -33,15 +41,22 @@ const Navbar = () => {
 
       <div className="SearchButton">
         <SearchIcon sx={{ cursor: "pointer" }} />
-        <div className="person-icon-container">
-          <PersonIcon sx={{ cursor: "pointer" }} />
-          <div class="dropdown-menu">
-            {" "}
-            <p className="dropdown-item">My Profile</p>{" "}
-            <p className="dropdown-item">Orders</p>{" "}
-            <p className="dropdown-item">Logout</p>{" "}
+        {token && (
+          <div className="person-icon-container">
+            <PersonIcon sx={{ cursor: "pointer" }} />
+            <div class="dropdown-menu">
+              {" "}
+              <p className="dropdown-item">My Profile</p>{" "}
+              <p onClick={() => navigate("/orders")} className="dropdown-item">
+                Orders
+              </p>{" "}
+              <p onClick={logout} className="dropdown-item">
+                Logout
+              </p>{" "}
+            </div>
           </div>
-        </div>
+        )}
+
         <Link to="/cart" style={{ position: "relative" }}>
           <ShoppingCartIcon sx={{ color: "#007BFF" }} />
           <p className="cartCount">{getCartCount()}</p>
