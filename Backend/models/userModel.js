@@ -25,15 +25,15 @@ const userSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
-    cartItems: [
-      {
-        quantity: {
-          type: Number,
-          default: 1,
-        },
-        product: { type: mongoose.Schema.Types.ObjectId, ref: "Product" },
-      },
-    ],
+    cartItems: {
+      type: Object,
+      default: {},
+      //   quantity: {
+      //     type: Number,
+      //     default: 1,
+      //   },
+      //   product: { type: mongoose.Schema.Types.ObjectId, ref: "Product" },
+    },
   },
   { timestamps: true, minimize: false }
 );
