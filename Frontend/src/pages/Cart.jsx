@@ -13,19 +13,21 @@ const Cart = () => {
   const [cartData, setCartData] = useState([]);
 
   useEffect(() => {
-    const tempData = [];
-    for (const items in cartItems) {
-      if (cartItems[items] > 0) {
-        tempData.push({
-          _id: items,
-          quantity: cartItems[items],
-        });
+    if (productList.length > 0) {
+      const tempData = [];
+      for (const items in cartItems) {
+        if (cartItems[items] > 0) {
+          tempData.push({
+            _id: items,
+            quantity: cartItems[items],
+          });
+        }
       }
+      setCartData(tempData);
+      // console.log("ts", tempData);
+      // console.log("pl", productList);
     }
-    setCartData(tempData);
-    // console.log("ts", tempData);
-    // console.log("pl", productList);
-  }, [cartItems]);
+  }, [cartItems, productList]);
 
   // useEffect(() => {
   //   console.log("List state:", list);
