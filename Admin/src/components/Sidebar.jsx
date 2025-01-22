@@ -17,10 +17,12 @@ import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import EditIcon from "@mui/icons-material/Edit";
 import AddIcon from "@mui/icons-material/Add";
+import PaidIcon from "@mui/icons-material/Paid";
 import "./Sidebar.css";
 const Sidebar = () => {
   const [productsOpen, setProductsOpen] = useState(false);
   const [categoryOpen, setCategoryOpen] = useState(false);
+  const [orderOpen, setOrderOpen] = useState(false);
   return (
     <div className="SidebarPartition">
       <div className="CombinedSidebar">
@@ -107,6 +109,33 @@ const Sidebar = () => {
                   }}
                 />
                 <p>Update Category</p>
+              </NavLink>
+            </List>
+          </Collapse>
+
+          <ListItemButton
+            onClick={() => setOrderOpen(!orderOpen)}
+            className="dropdown-header"
+          >
+            <ListItemIcon>
+              <PaidIcon />
+            </ListItemIcon>
+            <ListItemText primary="Orders" />
+            {orderOpen ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+
+          <Collapse in={orderOpen} timeout="auto" unmountOnExit>
+            <List component="div" className="nested-list">
+              <NavLink to={"/orders"} className="custom-navlink">
+                <AddIcon
+                  sx={{
+                    fontSize: 30,
+                    width: "1.25 rem",
+                    height: "1.25 rem",
+                    color: "green",
+                  }}
+                />
+                <p>Manage Orders</p>
               </NavLink>
             </List>
           </Collapse>

@@ -6,7 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import Add from "./pages/Add";
 import Update from "./pages/Update";
 import Remove from "./pages/Remove";
-
+import Orders from "./pages/Orders";
 import Login from "./components/Login";
 import { ToastContainer } from "react-toastify";
 import CatAdd from "./pages/CatAdd";
@@ -53,6 +53,10 @@ function App() {
                 <Route
                   path="/catEdit"
                   element={<CatEdit token={token} />}
+                ></Route>
+                <Route
+                  path="/orders"
+                  element={<Orders token={token} />}
                 ></Route>
               </Routes>
             </div>
