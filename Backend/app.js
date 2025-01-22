@@ -7,6 +7,7 @@ import userRouter from "./routes/userRoutes.js";
 import productRouter from "./routes/productRoutes.js";
 import categoryRouter from "./routes/categoryRoutes.js";
 import cartRoute from "./routes/cartRoutes.js";
+import orderRouter from "./routes/orderRoutes.js";
 //pu7I35FUvFiWvXpy
 //App config
 
@@ -22,6 +23,7 @@ app.use("/api/user", userRouter);
 app.use("/api/product", productRouter);
 app.use("/api/category", categoryRouter);
 app.use("/api/cart", cartRoute);
+app.use("/api/order", orderRouter);
 //api endpoints
 
 app.get("/", (req, res) => {
