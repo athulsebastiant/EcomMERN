@@ -1,19 +1,58 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Orders.css";
 import { ShopContext } from "../context/ShopContext";
+import { backendUrl } from "../App";
+import axios from "axios";
 const Orders = () => {
-  const { currency, productList } = useContext(ShopContext);
+  const { token, currency, productList } = useContext(ShopContext);
+
+  const [orderData, setOrderData] = useState([]);
+
+  const loadOrderData = async () => {
+    try {
+      if (!token) {
+        return null;
+      }
+      const response = await axios.post(
+        backendUrl + "/api/order/user-orders",
+        {},
+        { headers: { token } }
+      );
+      console.log(response.data);
+      if (response.data.success) {
+        let allOrdersItem = [];
+        response.data.orders.map((order) => {
+          order.items.map((item) => {
+            item["status"] = order.status;
+
+            item["payment"] = order.payment;
+
+            item["paymentMethod"] = order.paymentMethod;
+
+            item["date"] = order.date;
+            allOrdersItem.push(item);
+          });
+        });
+        setOrderData(allOrdersItem.reverse());
+      }
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    loadOrderData();
+  }, [token]);
+
   return (
     <div className="orders-container">
       <div className="orders-header">
         <h1>My Orders</h1>
         <p className="orders-subheader">
-          Showing your {Math.min(productList.length, 3)} most recent orders
+          Showing your {Math.min(orderData.length)} most recent orders
         </p>
       </div>
 
       <div className="orders-list">
-        {productList.slice(0, 3).map((item, index) => (
+        {orderData.map((item, index) => (
           <div key={index} className="order-item">
             <div className="order-image-container">
               <img
@@ -21,13 +60,13 @@ const Orders = () => {
                 alt={item.name}
                 className="order-image"
               />
-              <span className="status-badge">Delivered</span>
+              <span className="status-badge">{item.status}</span>
             </div>
 
             <div className="order-details">
               <div className="order-title">
                 <h3>{item.name}</h3>
-                <p className="order-number">Order #ORD-{2024000 + index}</p>
+                <p className="order-number">Order #ORD-{item._id}</p>
               </div>
 
               <div className="order-info">
@@ -41,12 +80,19 @@ const Orders = () => {
 
                 <div className="info-item">
                   <span className="info-label">Quantity:</span>
-                  <span className="info-value">1</span>
+                  <span className="info-value">{item.quantity}</span>
+                </div>
+
+                <div className="info-item">
+                  <span className="info-label">Payment Method:</span>
+                  <span className="info-value">{item.paymentMethod}</span>
                 </div>
 
                 <div className="info-item">
                   <span className="info-label">Date:</span>
-                  <span className="info-value">25 July 2025</span>
+                  <span className="info-value">
+                    {new Date(item.date).toLocaleDateString()}
+                  </span>
                 </div>
               </div>
             </div>
