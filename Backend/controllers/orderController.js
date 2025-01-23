@@ -1,6 +1,12 @@
 import orderModel from "../models/orderModel.js";
 import User from "../models/userModel.js";
-
+import razorpay from "razorpay";
+const currency = "INR";
+const deliveryCharge = 40;
+const razorpayInstance = new razorpay({
+  key_id: "rzp_test_bPVqwKHk97qTjm",
+  key_secret: "X4TOM7igrBCvxJK2FhAitanz",
+});
 // placing orders using cod
 const placeOrder = async (req, res) => {
   try {
@@ -26,7 +32,47 @@ const placeOrder = async (req, res) => {
   }
 };
 
-const placeOrderRazorPay = async (req, res) => {};
+const placeOrderRazorPay = async (req, res) => {
+  try {
+    const { userId, items, amount, address } = req.body;
+    const orderData = {
+      userId,
+      items,
+      address,
+      amount,
+      paymentMethod: "Razorpay",
+      paymentProperty: false,
+      date: Date.now(),
+    };
+
+    const newOrder = new orderModel(orderData);
+    await newOrder.save();
+
+    const options = {
+      amount: amount * 100,
+      currency: currency,
+      receipt: newOrder._id.toString(),
+    };
+    razorpayInstance.orders.create(options, (error, order) => {
+      if (error) {
+        console.log(error);
+        return res.json({ success: false, message: error });
+      }
+      res.json({ success: true, order });
+    });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
+
+const verifyRazorpay = async (req, res) => {
+  try {
+    const { userId, razorpay_order_id } = req.body;
+    const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id);
+    console.log(orderInfo);
+  } catch (error) {}
+};
 
 // All orders data for admin panel
 const allOrders = async (req, res) => {
@@ -63,4 +109,11 @@ const updateStatus = async (req, res) => {
   }
 };
 
-export { placeOrder, placeOrderRazorPay, allOrders, userOrders, updateStatus };
+export {
+  placeOrder,
+  placeOrderRazorPay,
+  allOrders,
+  verifyRazorpay,
+  userOrders,
+  updateStatus,
+};
