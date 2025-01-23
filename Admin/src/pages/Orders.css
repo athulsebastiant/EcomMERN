@@ -1,0 +1,23 @@
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.orders-table th,
+.orders-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.orders-table thead {
+    background-color: #f2f2f2;
+}
+
+.product-items p {
+    margin: 4px 0;
+}
+
+.status-cell {
+    min-width: 150px;
+}
