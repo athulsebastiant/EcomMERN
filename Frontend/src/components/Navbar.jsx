@@ -29,24 +29,21 @@ const Navbar = () => {
           <p>ALL PRODUCTS</p>
           <hr className="hrNB" />
         </NavLink>
-        <NavLink to="/b" className="NavlinkNB">
-          <p>Home3</p>
-          <hr className="hrNB" />
-        </NavLink>
-        <NavLink to="/c" className="NavlinkNB">
-          <p>Home4</p>
-          <hr className="hrNB" />
-        </NavLink>
       </ul>
 
       <div className="SearchButton">
-        <SearchIcon sx={{ cursor: "pointer" }} />
+        {/* <SearchIcon sx={{ cursor: "pointer" }} /> */}
         {token && (
           <div className="person-icon-container">
             <PersonIcon sx={{ cursor: "pointer" }} />
             <div class="dropdown-menu">
               {" "}
-              <p className="dropdown-item">My Profile</p>{" "}
+              <p
+                onClick={() => navigate("/user-profile")}
+                className="dropdown-item"
+              >
+                My Profile
+              </p>{" "}
               <p onClick={() => navigate("/orders")} className="dropdown-item">
                 Orders
               </p>{" "}

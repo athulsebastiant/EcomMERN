@@ -11,6 +11,7 @@ import AllProducts from "./pages/AllProducts";
 import ProductItem from "./components/ProductItem";
 import Searchbar from "./components/Searchbar";
 import Orders from "./pages/Orders";
+import UserProfile from "./pages/UserProfile";
 export const backendUrl = import.meta.env.VITE_BACKEND_URL;
 const App = () => {
   return (
@@ -25,7 +26,7 @@ const App = () => {
         <Route path="/place-order" element={<PlaceOrder />} />
         <Route path="/all-products" element={<AllProducts />} />
         <Route path="/orders" element={<Orders />} />
-
+        <Route path="/user-profile" element={<UserProfile />} />
         {/* <Route path="/product-item" element={<ProductItem />} /> */}
       </Routes>
     </div>

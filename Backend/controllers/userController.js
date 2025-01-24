@@ -95,4 +95,113 @@ const adminLogin = async (req, res) => {
   }
 };
 
-export { loginUser, registerUser, adminLogin };
+const editUser = async (req, res) => {
+  try {
+    const { _id, name, email, password, phoneNumber } = req.body;
+
+    // Validate input
+    if (!_id) {
+      return res.status(400).json({
+        success: false,
+        message: "User ID is required",
+      });
+    }
+
+    // Email validation
+    if (!validator.isEmail(email)) {
+      return res.status(400).json({
+        success: false,
+        message: "Please enter a valid email",
+      });
+    }
+
+    // Password validation
+    if (password && password.length < 8) {
+      return res.status(400).json({
+        success: false,
+        message: "Please enter a strong password",
+      });
+    }
+
+    // Find the user by ID
+    const user = await User.findById(_id);
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    // Prepare update object
+    const updateData = {
+      name,
+      email,
+      phoneNumber,
+    };
+
+    // Hash password if provided
+    if (password) {
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(password, salt);
+      updateData.password = hashedPassword;
+    }
+
+    // Update user
+    const updatedUser = await User.findByIdAndUpdate(
+      _id,
+      updateData,
+      { new: true, select: "-password" } // Return updated user without password
+    );
+
+    res.status(200).json({
+      success: true,
+      message: "User updated successfully",
+      user: updatedUser,
+    });
+  } catch (error) {
+    console.error("Error updating user:", error);
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+      error: error.message,
+    });
+  }
+};
+
+const getUserDetails = async (req, res) => {
+  try {
+    const { userId } = req.body;
+
+    // Validate input
+    if (!userId) {
+      return res.status(400).json({
+        success: false,
+        message: "User ID is required",
+      });
+    }
+
+    // Fetch user, excluding password field
+    const user = await User.findById(userId).select("-password");
+
+    // Check if user found
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      user: user,
+    });
+  } catch (error) {
+    console.error("Error fetching user details:", error);
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+};
+export { loginUser, registerUser, adminLogin, editUser, getUserDetails };
