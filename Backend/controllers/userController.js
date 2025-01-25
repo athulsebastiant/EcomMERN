@@ -97,10 +97,10 @@ const adminLogin = async (req, res) => {
 
 const editUser = async (req, res) => {
   try {
-    const { _id, name, email, password, phoneNumber } = req.body;
+    const { userId, name, email, phoneNumber } = req.body;
 
     // Validate input
-    if (!_id) {
+    if (!userId) {
       return res.status(400).json({
         success: false,
         message: "User ID is required",
@@ -115,16 +115,16 @@ const editUser = async (req, res) => {
       });
     }
 
-    // Password validation
-    if (password && password.length < 8) {
-      return res.status(400).json({
-        success: false,
-        message: "Please enter a strong password",
-      });
-    }
+    // // Password validation
+    // if (password && password.length < 8) {
+    //   return res.status(400).json({
+    //     success: false,
+    //     message: "Please enter a strong password",
+    //   });
+    // }
 
     // Find the user by ID
-    const user = await User.findById(_id);
+    const user = await User.findById(userId);
 
     if (!user) {
       return res.status(404).json({
@@ -140,18 +140,18 @@ const editUser = async (req, res) => {
       phoneNumber,
     };
 
-    // Hash password if provided
-    if (password) {
-      const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(password, salt);
-      updateData.password = hashedPassword;
-    }
+    // // Hash password if provided
+    // if (password) {
+    //   const salt = await bcrypt.genSalt(10);
+    //   const hashedPassword = await bcrypt.hash(password, salt);
+    //   updateData.password = hashedPassword;
+    // }
 
     // Update user
     const updatedUser = await User.findByIdAndUpdate(
-      _id,
+      userId,
       updateData,
-      { new: true, select: "-password" } // Return updated user without password
+      { new: true } // Return updated user without password
     );
 
     res.status(200).json({

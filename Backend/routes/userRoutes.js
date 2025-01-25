@@ -18,5 +18,5 @@ userRouter.post("/admin", adminLogin);
 
 userRouter.patch("/edit-user", authUser, editUser);
 
-userRouter.get("/get-user", authUser, getUserDetails);
+userRouter.post("/get-user", authUser, getUserDetails);
 export default userRouter;
