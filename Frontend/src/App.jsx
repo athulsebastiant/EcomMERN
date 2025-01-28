@@ -12,22 +12,39 @@ import ProductItem from "./components/ProductItem";
 import Searchbar from "./components/Searchbar";
 import Orders from "./pages/Orders";
 import UserProfile from "./pages/UserProfile";
+import ProtectedRoute from "./ProtectedRoute";
 export const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const App = () => {
   return (
     <div className="MainDivApp">
       <Navbar />
       <Searchbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/product/:productId" element={<Product />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/place-order" element={<PlaceOrder />} />
-        <Route path="/all-products" element={<AllProducts />} />
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/user-profile" element={<UserProfile />} />
-        {/* <Route path="/product-item" element={<ProductItem />} /> */}
+        <Route path="/" element={<ProtectedRoute element={<Home />} />} />
+        <Route
+          path="/product/:productId"
+          element={<ProtectedRoute element={<Product />} />}
+        />
+        <Route path="/cart" element={<ProtectedRoute element={<Cart />} />} />
+        <Route
+          path="/place-order"
+          element={<ProtectedRoute element={<PlaceOrder />} />}
+        />
+        <Route
+          path="/all-products"
+          element={<ProtectedRoute element={<AllProducts />} />}
+        />
+        <Route
+          path="/orders"
+          element={<ProtectedRoute element={<Orders />} />}
+        />
+        <Route
+          path="/user-profile"
+          element={<ProtectedRoute element={<UserProfile />} />}
+        />
+        {/* Public Routes */}
+        <Route path="/login" element={<Login />} />{" "}
       </Routes>
     </div>
   );
