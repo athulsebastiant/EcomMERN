@@ -6,6 +6,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import Inventory2Icon from "@mui/icons-material/Inventory2";
@@ -127,12 +128,12 @@ const Sidebar = () => {
           <Collapse in={orderOpen} timeout="auto" unmountOnExit>
             <List component="div" className="nested-list">
               <NavLink to={"/orders"} className="custom-navlink">
-                <AddIcon
+                <LocalShippingIcon
                   sx={{
                     fontSize: 30,
                     width: "1.25 rem",
                     height: "1.25 rem",
-                    color: "green",
+                    color: "yellow",
                   }}
                 />
                 <p>Manage Orders</p>
