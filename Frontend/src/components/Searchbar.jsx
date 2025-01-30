@@ -22,11 +22,12 @@ const Searchbar = () => {
     <Box
       sx={{
         marginTop: "10px",
-        borderTop: "1px solid",
-        borderBottom: "1px solid",
-        backgroundColor: "#8ef28a",
+        borderTop: "1px solid rgba(255, 255, 255, 0.2)", // Subtle white border
+        borderBottom: "1px solid rgba(255, 255, 255, 0.2)",
+        backgroundColor: "#5499ff",
         textAlign: "center",
-        p: 1,
+        padding: "1.2rem", // Increased padding
+        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)", // Subtle shadow
       }}
     >
       {" "}
@@ -35,15 +36,15 @@ const Searchbar = () => {
           display: "inline-flex",
           alignItems: "center",
           justifyContent: "center",
-          borderWidth: 1,
-          borderColor: "#cbd5e0",
-          p: 1,
-          my: 1,
-          mx: 1,
-          borderRadius: "9999px",
-          width: "75%",
-
-          backgroundColor: "#f9f871",
+          borderWidth: "1px",
+          borderColor: "rgba(0, 0, 0, 0.1)", // Subtle border
+          padding: "0.5rem",
+          margin: "0.5rem auto", // Center the box
+          borderRadius: "16px", // Slightly reduced border radius
+          width: "60%", // Slightly narrower for better proportion
+          maxWidth: "800px", // Maximum width limit
+          backgroundColor: "#ffffff",
+          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.05)", // Subtle shadow
         }}
       >
         {" "}
@@ -56,10 +57,26 @@ const Searchbar = () => {
             flex: 1,
             outline: "none",
             background: "inherit",
-            fontSize: "0.875rem",
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: "transparent", // Remove default TextField border
+              },
+              "&:hover fieldset": {
+                borderColor: "transparent",
+              },
+              "&.Mui-focused fieldset": {
+                borderColor: "transparent",
+              },
+            },
           }}
           InputProps={{
-            sx: { height: "3rem", fontSize: "0.875rem" },
+            sx: {
+              height: "2.75rem", // Slightly reduced height
+              fontSize: "1rem", // Increased font size
+              "&::placeholder": {
+                color: "#666", // Darker placeholder text
+              },
+            },
             endAdornment: (
               <InputAdornment position="end">
                 {" "}

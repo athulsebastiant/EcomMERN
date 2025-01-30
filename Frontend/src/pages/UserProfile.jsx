@@ -65,9 +65,15 @@ const UserProfile = () => {
           flexDirection: "column",
           gap: 3,
           mt: 4,
+          p: 4,
+          borderRadius: 2,
+          bgcolor: "#f5f5f5",
+          boxShadow: 3,
         }}
       >
-        <Typography variant="h4">User Profile</Typography>
+        <Typography variant="h4" fontWeight="bold">
+          User Profile
+        </Typography>
         <TextField
           name="name"
           label="Name"
@@ -75,6 +81,14 @@ const UserProfile = () => {
           onChange={handleInputChange}
           disabled={!isEditing}
           fullWidth
+          sx={{
+            bgcolor: "white",
+            borderRadius: 1,
+            boxShadow: 1,
+          }}
+          InputProps={{
+            style: { fontWeight: "bold" },
+          }}
         />
         <TextField
           name="email"
@@ -83,6 +97,14 @@ const UserProfile = () => {
           onChange={handleInputChange}
           disabled={!isEditing}
           fullWidth
+          sx={{
+            bgcolor: "white",
+            borderRadius: 1,
+            boxShadow: 1,
+          }}
+          InputProps={{
+            style: { fontWeight: "bold" },
+          }}
         />
         <TextField
           name="phoneNumber"
@@ -91,13 +113,39 @@ const UserProfile = () => {
           onChange={handleInputChange}
           disabled={!isEditing}
           fullWidth
+          sx={{
+            bgcolor: "white",
+            borderRadius: 1,
+            boxShadow: 1,
+          }}
+          InputProps={{
+            style: { fontWeight: "bold" },
+          }}
         />
         {!isEditing ? (
-          <Button variant="contained" onClick={handleEditClick}>
+          <Button
+            variant="contained"
+            onClick={handleEditClick}
+            sx={{
+              bgcolor: "#1976d2",
+              color: "white",
+              fontWeight: "bold",
+              "&:hover": { bgcolor: "#1565c0" },
+            }}
+          >
             Edit Profile
           </Button>
         ) : (
-          <Button type="submit" variant="contained">
+          <Button
+            type="submit"
+            variant="contained"
+            sx={{
+              bgcolor: "#388e3c",
+              color: "white",
+              fontWeight: "bold",
+              "&:hover": { bgcolor: "#2e7d32" },
+            }}
+          >
             Save Profile
           </Button>
         )}

@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import "./Navbar.css";
 import elcorpLogo from "../assets/elcorp.png";
 import { NavLink } from "react-router-dom";
-import SearchIcon from "@mui/icons-material/Search";
 import PersonIcon from "@mui/icons-material/Person";
 import { Link } from "react-router-dom";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
