@@ -108,13 +108,13 @@ display: flex;
 .brand-sticker {
     background-color: #e0f7fa;
     /* Light teal background */
-    color: #00796b;
+    color: #00e3bb;
     /* Teal text color */
     padding: 0.5rem 1rem;
     /* Padding around text */
     border-radius: 12px;
     /* Rounded corners */
-    border: 2px solid #ffeb3b;
+    border: 2px solid #f9f871;
     /* Yellow border for sticker effect */
     display: inline-block;
     /* Inline-block for sticker-like appearance */
@@ -125,8 +125,8 @@ display: flex;
 }
 
 .stock-info {
-        width: 15px;
-        padding: 8px 15px;
+        width: 22px;
+        padding: 8px 10px;
         border-radius: 25px;
         font-weight: bold;
         font-size: 14px;

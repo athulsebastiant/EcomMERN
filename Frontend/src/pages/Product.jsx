@@ -87,7 +87,7 @@ const Product = () => {
         </p>
         <p class="brand-sticker">{selectedProduct.brand}</p>{" "}
         <p class="stock-info">{selectedProduct.stock}</p>
-        <p style={{ marginTop: "1.25rem", color: " #6b7280", width: "80%" }}>
+        <p style={{ marginTop: "1.25rem", width: "80%" }}>
           {selectedProduct.description}
         </p>
         <Button

@@ -35,7 +35,7 @@ const Navbar = () => {
         {/* <SearchIcon sx={{ cursor: "pointer" }} /> */}
         {token && (
           <div className="person-icon-container">
-            <PersonIcon sx={{ cursor: "pointer" }} />
+            <PersonIcon sx={{ cursor: "pointer", color: "#007BFF" }} />
             <div class="dropdown-menu">
               {" "}
               <p

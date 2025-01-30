@@ -21,9 +21,10 @@ const Searchbar = () => {
   return showSearch && visible ? (
     <Box
       sx={{
+        marginTop: "10px",
         borderTop: "1px solid",
         borderBottom: "1px solid",
-        backgroundColor: "#f9fafb",
+        backgroundColor: "#8ef28a",
         textAlign: "center",
         p: 1,
       }}
@@ -41,6 +42,8 @@ const Searchbar = () => {
           mx: 1,
           borderRadius: "9999px",
           width: "75%",
+
+          backgroundColor: "#f9f871",
         }}
       >
         {" "}

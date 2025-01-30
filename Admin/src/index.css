@@ -15,3 +15,21 @@
     box-sizing: border-box;
 
 }
+
+:root {
+    --primary-color: #0D6EFD;
+    --secondary-color: #6610F2;
+    --background-color: #F8F9FA;
+    --dark-background: #1A1A1A;
+    --text-dark: #212529;
+    --text-light: #E9ECEF;
+    --success-color: #28A745;
+    --warning-color: #FFC107;
+    --danger-color: #DC3545;
+}
+
+/* Light Mode */
+body {
+    background-color: var(--background-color);
+    color: var(--text-dark);
+}

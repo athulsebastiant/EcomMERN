@@ -57,11 +57,11 @@
         /* Equivalent to flex-col in Tailwind */
         gap: 0.5rem;
         /* Equivalent to gap-2 in Tailwind */
-        font-size: 0.875rem;
+        font-size: 0.9rem;
         /* Equivalent to text-sm in Tailwind */
-        font-weight: 300;
+        font-weight: 700;
         /* Equivalent to font-light in Tailwind */
-        color: #4b5563;
+        color: #c5c9d6;
 }
 
 .pInCatText{
@@ -93,7 +93,7 @@ position: absolute;
     padding: 0.5rem;
     border: 1px solid #D1D5DB;
     border-radius: 0.25rem;
-    background-color: white;
+    background-color: #a6abbd;
     font-size: 0.875rem;
     cursor: pointer;
     outline: none;

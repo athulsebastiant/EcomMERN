@@ -21,10 +21,12 @@ const ProductItem = ({ id, image, name, price }) => {
   }));
 
   const ProductImage = styled(CardMedia)({
-    height: 0,
-    paddingTop: "100%", // 1:1 aspect ratio
+    height: "300px",
+    // paddingTop: "100%", // 1:1 aspect ratio
     transition: "transform 0.3s ease-in-out",
     backgroundSize: "contain",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
   });
 
   const ProductLink = styled(Link)({
@@ -63,10 +65,10 @@ const ProductItem = ({ id, image, name, price }) => {
   const ProductPrice = styled(Typography)({
     fontSize: "1rem",
     fontWeight: 700,
-    color: "#4338ca",
+    color: "#d5a419",
     fontFamily: "'Inter', sans-serif",
     letterSpacing: "-0.01em",
-    background: "linear-gradient(45deg, #4338ca, #6366f1)",
+    background: "linear-gradient(45deg, #d5a419, #6366f1)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
   });
