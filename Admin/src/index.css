@@ -2,10 +2,14 @@
 
 *{
     font-family: "Roboto";
+    
+}
+p{
+    color: #ddd;
 }
 
 .active{
-    background-color: #a3c9f9;
+    background-color: #253247;
     border-color: #387bcd;
 }
 
@@ -16,20 +20,21 @@
 
 }
 
-:root {
-    --primary-color: #0D6EFD;
-    --secondary-color: #6610F2;
-    --background-color: #F8F9FA;
-    --dark-background: #1A1A1A;
-    --text-dark: #212529;
-    --text-light: #E9ECEF;
-    --success-color: #28A745;
-    --warning-color: #FFC107;
-    --danger-color: #DC3545;
-}
+
 
 /* Light Mode */
 body {
-    background-color: var(--background-color);
-    color: var(--text-dark);
+    background-color:"#8ef28a";
+    color: "white";
+}
+
+a {
+    color: #d3fbd8;
+}
+
+
+
+a:visited {
+    color: #d3fbd8;
+    /* Visited link color */
 }

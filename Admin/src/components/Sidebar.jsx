@@ -32,8 +32,9 @@ const Sidebar = () => {
           <ListItemButton
             onClick={() => setProductsOpen(!productsOpen)}
             className="dropdown-header"
+            sx={{ color: "#1eaab0" }}
           >
-            <ListItemIcon>
+            <ListItemIcon sx={{ color: "#1eaab0" }}>
               <Inventory2Icon />
             </ListItemIcon>
             <ListItemText primary="Products" />
@@ -78,8 +79,9 @@ const Sidebar = () => {
           <ListItemButton
             onClick={() => setCategoryOpen(!categoryOpen)}
             className="dropdown-header"
+            sx={{ color: "#1eaab0" }}
           >
-            <ListItemIcon>
+            <ListItemIcon sx={{ color: "#1eaab0" }}>
               <CategoryIcon />
             </ListItemIcon>
             <ListItemText primary="Categories" />
@@ -117,8 +119,9 @@ const Sidebar = () => {
           <ListItemButton
             onClick={() => setOrderOpen(!orderOpen)}
             className="dropdown-header"
+            sx={{ color: "#1eaab0" }}
           >
-            <ListItemIcon>
+            <ListItemIcon sx={{ color: "#1eaab0" }}>
               <PaidIcon />
             </ListItemIcon>
             <ListItemText primary="Orders" />

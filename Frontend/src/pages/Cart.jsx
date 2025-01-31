@@ -40,7 +40,7 @@ const Cart = () => {
   return (
     <div className="CartMainDiv">
       <div className="CartSecDiv">
-        <h4>YOUR CART</h4>
+        <h4 style={{ color: "white" }}>YOUR CART</h4>
       </div>
       <div>
         {cartData.map((item, index) => {
@@ -57,11 +57,17 @@ const Cart = () => {
                   style={{ width: "6rem", height: "6rem" }}
                 />
                 <div>
-                  <p style={{ fontSize: "1rem", fontWeight: "500" }}>
+                  <p
+                    style={{
+                      fontSize: "1rem",
+                      fontWeight: "500",
+                      color: "white",
+                    }}
+                  >
                     {productData.name}
                   </p>
                   <div className="otherProDets">
-                    <p>
+                    <p style={{ color: "white" }}>
                       {currency}
                       {productData.price}
                     </p>

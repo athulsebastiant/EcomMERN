@@ -15,7 +15,7 @@
     padding-top: 1rem;
         padding-bottom: 1rem;
         /* This is equivalent to py-4 in Tailwind CSS */
-        border-top: 1px solid;
+        border-top: 1px solid white;
         /* Adjust the value according to your needs */
         color: #4a5568;
         /* This is equivalent to text-gray-700 in Tailwind CSS */

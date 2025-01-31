@@ -60,7 +60,7 @@ const Orders = ({ token }) => {
 
   return (
     <div className="orders-container">
-      <h3>Order Page</h3>
+      <h3 style={{ color: "#ddd" }}>Order Page</h3>
       <table className="orders-table">
         <thead>
           <tr>
@@ -116,6 +116,9 @@ const Orders = ({ token }) => {
                       label="Status"
                       value={order.status}
                       onChange={(event) => statusHandler(event, order._id)}
+                      style={{
+                        color: "#ddd",
+                      }}
                     >
                       <MenuItem value={"Order Placed"}>Order Placed</MenuItem>
                       <MenuItem value={"Packing"}>Packing</MenuItem>

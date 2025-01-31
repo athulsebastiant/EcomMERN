@@ -301,7 +301,7 @@ const Update = ({ token }) => {
 
   return (
     <>
-      <p style={{ marginBottom: "1.5rem" }}>All Products</p>
+      <h3 style={{ marginBottom: "1.5rem", color: "#ddd" }}>Update Products</h3>
       <Button
         variant="contained"
         sx={{ marginBottom: "1rem" }}

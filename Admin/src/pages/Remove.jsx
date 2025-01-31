@@ -206,7 +206,7 @@ const Remove = ({ token }) => {
   };
   return (
     <>
-      <p style={{ marginBottom: "1.5rem" }}>Delete Products</p>
+      <h3 style={{ marginBottom: "1.5rem", color: "#ddd" }}>Delete Products</h3>
       <Button
         variant="contained"
         sx={{ marginBottom: "1rem" }}

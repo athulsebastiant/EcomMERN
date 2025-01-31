@@ -6,7 +6,7 @@ const Navbar = ({ setToken }) => {
   return (
     <div className="positioning">
       <img className="logo" src={elcorpLogo} alt="logo" />
-
+      <h3 style={{ color: "#ddd" }}>ADMIN'S DASHBOARD</h3>
       <Button
         onClick={() => setToken("")}
         variant="contained"

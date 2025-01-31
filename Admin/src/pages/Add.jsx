@@ -173,7 +173,27 @@ const Add = ({ token }) => {
           label="Enter Product Name"
           variant="outlined"
           required
-          sx={{ width: "100%", maxWidth: "500px" }}
+          sx={{
+            width: "100%",
+            maxWidth: "500px",
+            color: "#ddd",
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#ddd",
+            },
+            "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#ddd",
+            },
+            "& .MuiInputLabel-root": {
+              color: "#ddd",
+            },
+            "& .MuiInputLabel-root.Mui-focused": {
+              color: "#ddd",
+            },
+            "& .MuiOutlinedInput-input::placeholder": {
+              color: "#ddd",
+              opacity: 1,
+            },
+          }}
         />
       </div>
 
@@ -186,7 +206,27 @@ const Add = ({ token }) => {
           label="Enter Product Brand"
           variant="outlined"
           required
-          sx={{ width: "100%", maxWidth: "500px" }}
+          sx={{
+            width: "100%",
+            maxWidth: "500px",
+            color: "#ddd",
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#ddd",
+            },
+            "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#ddd",
+            },
+            "& .MuiInputLabel-root": {
+              color: "#ddd",
+            },
+            "& .MuiInputLabel-root.Mui-focused": {
+              color: "#ddd",
+            },
+            "& .MuiOutlinedInput-input::placeholder": {
+              color: "#ddd",
+              opacity: 1,
+            },
+          }}
         />
       </div>
 
@@ -200,7 +240,27 @@ const Add = ({ token }) => {
           label="Enter Product Description"
           multiline
           rows={4}
-          sx={{ width: "100%", maxWidth: "500px" }}
+          sx={{
+            width: "100%",
+            maxWidth: "500px",
+            color: "#ddd",
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#ddd",
+            },
+            "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#ddd",
+            },
+            "& .MuiInputLabel-root": {
+              color: "#ddd",
+            },
+            "& .MuiInputLabel-root.Mui-focused": {
+              color: "#ddd",
+            },
+            "& .MuiOutlinedInput-input::placeholder": {
+              color: "#ddd",
+              opacity: 1,
+            },
+          }}
           required
         />
       </div>
@@ -215,7 +275,27 @@ const Add = ({ token }) => {
           variant="outlined"
           type="Number"
           required
-          sx={{ width: "100%", maxWidth: "500px" }}
+          sx={{
+            width: "100%",
+            maxWidth: "500px",
+            color: "#ddd",
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#ddd",
+            },
+            "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#ddd",
+            },
+            "& .MuiInputLabel-root": {
+              color: "#ddd",
+            },
+            "& .MuiInputLabel-root.Mui-focused": {
+              color: "#ddd",
+            },
+            "& .MuiOutlinedInput-input::placeholder": {
+              color: "#ddd",
+              opacity: 1,
+            },
+          }}
         />
       </div>
 
@@ -229,7 +309,27 @@ const Add = ({ token }) => {
           variant="outlined"
           type="Number"
           required
-          sx={{ width: "100%", maxWidth: "500px" }}
+          sx={{
+            width: "100%",
+            maxWidth: "500px",
+            color: "#ddd",
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#ddd",
+            },
+            "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#ddd",
+            },
+            "& .MuiInputLabel-root": {
+              color: "#ddd",
+            },
+            "& .MuiInputLabel-root.Mui-focused": {
+              color: "#ddd",
+            },
+            "& .MuiOutlinedInput-input::placeholder": {
+              color: "#ddd",
+              opacity: 1,
+            },
+          }}
         />
       </div>
 
@@ -239,7 +339,27 @@ const Add = ({ token }) => {
           id="outlined-select-currency"
           select
           label="Select Category"
-          sx={{ width: "100%", maxWidth: "500px" }}
+          sx={{
+            width: "100%",
+            maxWidth: "500px",
+            color: "#ddd",
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#ddd",
+            },
+            "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#ddd",
+            },
+            "& .MuiInputLabel-root": {
+              color: "#ddd",
+            },
+            "& .MuiInputLabel-root.Mui-focused": {
+              color: "#ddd",
+            },
+            "& .MuiOutlinedInput-input::placeholder": {
+              color: "#ddd",
+              opacity: 1,
+            },
+          }}
           required
           value={selectedCategory}
           onChange={handleChange}

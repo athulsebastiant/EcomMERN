@@ -8,7 +8,7 @@ const CartTotal = () => {
   return (
     <div style={{ width: "100%" }}>
       <div style={{ fontSize: "1.75rem", lineHeight: "2.25rem" }}>
-        <h4>CART TOTALS</h4>
+        <h4 style={{ color: "white" }}>CART TOTALS</h4>
       </div>
       <div className="mainCarTTdiv">
         <div className="STot">

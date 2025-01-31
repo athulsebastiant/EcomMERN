@@ -37,7 +37,7 @@ const CatAdd = ({ token }) => {
   return (
     <form className="CatAddForm" onSubmit={handleSubmit}>
       <div style={{ width: "100%" }}>
-        <p style={{ marginBottom: "0.5rem" }}>Category Name</p>
+        <p style={{ marginBottom: "0.5rem", color: "#ddd" }}>Category Name</p>
         <TextField
           onChange={(e) => setName(e.target.value)}
           value={name}
@@ -45,12 +45,32 @@ const CatAdd = ({ token }) => {
           label="Enter Category Name"
           variant="outlined"
           required
-          sx={{ width: "100%", maxWidth: "500px" }}
+          sx={{
+            width: "100%",
+            maxWidth: "500px",
+            color: "#ddd",
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#ddd",
+            },
+            "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#ddd",
+            },
+            "& .MuiInputLabel-root": {
+              color: "#ddd",
+            },
+            "& .MuiInputLabel-root.Mui-focused": {
+              color: "#ddd",
+            },
+            "& .MuiOutlinedInput-input::placeholder": {
+              color: "#ddd",
+              opacity: 1,
+            },
+          }}
         />
       </div>
 
       <div style={{ width: "100%" }}>
-        <p style={{ marginBottom: "0.5rem" }}>Category Name</p>
+        <p style={{ marginBottom: "0.5rem", color: "#ddd" }}>Category Name</p>
         <TextField
           onChange={(e) => setDescription(e.target.value)}
           value={description}
@@ -58,7 +78,27 @@ const CatAdd = ({ token }) => {
           label="Enter Description"
           variant="outlined"
           required
-          sx={{ width: "100%", maxWidth: "500px" }}
+          sx={{
+            width: "100%",
+            maxWidth: "500px",
+            color: "#ddd",
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#ddd",
+            },
+            "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#ddd",
+            },
+            "& .MuiInputLabel-root": {
+              color: "#ddd",
+            },
+            "& .MuiInputLabel-root.Mui-focused": {
+              color: "#ddd",
+            },
+            "& .MuiOutlinedInput-input::placeholder": {
+              color: "#ddd",
+              opacity: 1,
+            },
+          }}
         />
       </div>
 
@@ -70,8 +110,8 @@ const CatAdd = ({ token }) => {
           paddingTop: "0.75rem",
           paddingBottom: "0.75rem",
           marginTop: "1rem",
-          backgroundColor: "black",
-          color: "white",
+          backgroundColor: "#0096ff",
+          color: "black",
         }}
       >
         ADD

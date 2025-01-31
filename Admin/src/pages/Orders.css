@@ -1,6 +1,7 @@
 .orders-table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 15px;
 }
 
 .orders-table th,
@@ -20,4 +21,8 @@
 
 .status-cell {
     min-width: 150px;
+}
+
+tbody{
+    color: #ddd;
 }
