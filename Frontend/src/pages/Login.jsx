@@ -73,6 +73,25 @@ const Login = () => {
             required
             onChange={(e) => setName(e.target.value)}
             value={name}
+            sx={{
+              color: "#ddd",
+              "& .MuiOutlinedInput-notchedOutline": {
+                borderColor: "#ddd",
+              },
+              "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+                borderColor: "#ddd",
+              },
+              "& .MuiInputLabel-root": {
+                color: "#ddd",
+              },
+              "& .MuiInputLabel-root.Mui-focused": {
+                color: "#ddd",
+              },
+              "& .MuiOutlinedInput-input::placeholder": {
+                color: "#ddd",
+                opacity: 1,
+              },
+            }}
           />
 
           <TextField
@@ -83,6 +102,25 @@ const Login = () => {
             required
             onChange={(e) => setPhoneNumber(e.target.value)}
             value={phoneNumber}
+            sx={{
+              color: "#ddd",
+              "& .MuiOutlinedInput-notchedOutline": {
+                borderColor: "#ddd",
+              },
+              "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+                borderColor: "#ddd",
+              },
+              "& .MuiInputLabel-root": {
+                color: "#ddd",
+              },
+              "& .MuiInputLabel-root.Mui-focused": {
+                color: "#ddd",
+              },
+              "& .MuiOutlinedInput-input::placeholder": {
+                color: "#ddd",
+                opacity: 1,
+              },
+            }}
           />
         </>
       )}
@@ -94,6 +132,25 @@ const Login = () => {
         required
         onChange={(e) => setEmail(e.target.value)}
         value={email}
+        sx={{
+          color: "#ddd",
+          "& .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#ddd",
+          },
+          "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#ddd",
+          },
+          "& .MuiInputLabel-root": {
+            color: "#ddd",
+          },
+          "& .MuiInputLabel-root.Mui-focused": {
+            color: "#ddd",
+          },
+          "& .MuiOutlinedInput-input::placeholder": {
+            color: "#ddd",
+            opacity: 1,
+          },
+        }}
       />
 
       <TextField
@@ -103,6 +160,25 @@ const Login = () => {
         required
         onChange={(e) => setPassword(e.target.value)}
         value={password}
+        sx={{
+          color: "#ddd",
+          "& .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#ddd",
+          },
+          "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#ddd",
+          },
+          "& .MuiInputLabel-root": {
+            color: "#ddd",
+          },
+          "& .MuiInputLabel-root.Mui-focused": {
+            color: "#ddd",
+          },
+          "& .MuiOutlinedInput-input::placeholder": {
+            color: "#ddd",
+            opacity: 1,
+          },
+        }}
       />
       {currentState === "Login" ? (
         <p

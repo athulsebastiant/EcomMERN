@@ -78,7 +78,6 @@
     gap: 15px;
 }
 
-/* User profile icon container */
 .person-icon-container {
     position: relative;
     display: flex;
@@ -86,15 +85,13 @@
     cursor: pointer;
 }
 
-.person-icon-container:hover .dropdown-menu,.dropdown-menu:hover {
-    display: block;
-}
-
 /* Dropdown menu */
 .dropdown-menu {
-    display: none;
+    display: block;
+    /* Controlled by React state */
     position: absolute;
     top: 40px;
+    /* Adjust this value to position the dropdown correctly */
     right: 0;
     background: white;
     border-radius: 8px;
@@ -103,8 +100,7 @@
     min-width: 140px;
     text-align: left;
     z-index: 1001;
-    /* Ensure the dropdown stays above other elements */
-    transition: visibility 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    animation: fadeIn 0.2s ease-in-out;
 }
 
 @keyframes fadeIn {
@@ -127,13 +123,11 @@
     transition: background 0.3s ease-in-out;
     border-radius: 6px;
     color: #333;
-    /* Ensure text is readable */
 }
 
 .dropdown-item:hover {
     background: #f0f0f0;
     color: #007BFF;
-    /* Change text color on hover */
 }
 
 /* Shopping cart badge */

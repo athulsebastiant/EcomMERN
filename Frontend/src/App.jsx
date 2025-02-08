@@ -14,6 +14,7 @@ import Orders from "./pages/Orders";
 import UserProfile from "./pages/UserProfile";
 import ProtectedRoute from "./ProtectedRoute";
 import { ToastContainer } from "react-toastify";
+import Footer from "./components/Footer";
 export const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const App = () => {
@@ -48,6 +49,7 @@ const App = () => {
         {/* Public Routes */}
         <Route path="/login" element={<Login />} />{" "}
       </Routes>
+      <Footer />
     </div>
   );
 };

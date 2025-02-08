@@ -119,6 +119,25 @@ const Orders = ({ token }) => {
                       style={{
                         color: "#ddd",
                       }}
+                      sx={{
+                        color: "#ddd",
+                        "& .MuiOutlinedInput-notchedOutline": {
+                          borderColor: "#ddd",
+                        },
+                        "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+                          borderColor: "#ddd",
+                        },
+                        "& .MuiInputLabel-root": {
+                          color: "#ddd",
+                        },
+                        "& .MuiInputLabel-root.Mui-focused": {
+                          color: "#ddd",
+                        },
+                        "& .MuiOutlinedInput-input::placeholder": {
+                          color: "#ddd",
+                          opacity: 1,
+                        },
+                      }}
                     >
                       <MenuItem value={"Order Placed"}>Order Placed</MenuItem>
                       <MenuItem value={"Packing"}>Packing</MenuItem>
