@@ -35,25 +35,27 @@ const ShopContextProvider = (props) => {
   }, []);
 
   const addToCart = async (itemId) => {
-    let cartData = structuredClone(cartItems);
-    if (cartData[itemId] > 0) {
-      cartData[itemId] += 1;
-    } else {
-      cartData[itemId] = {};
-      cartData[itemId] = 1;
-    }
-    setCartItems(cartData);
-    if (token) {
-      try {
-        await axios.post(
-          backendUrl + "/api/cart/add",
-          { itemId },
-          { headers: { token } }
-        );
-      } catch (error) {
-        console.log(error);
-        toast.error(error.message);
-      }
+    if (!token) return;
+
+    try {
+      // ✅ Send request to backend first
+      await axios.post(
+        backendUrl + "/api/cart/add",
+        { itemId },
+        { headers: { token } }
+      );
+
+      // ✅ Only update cart if API request is successful
+      setCartItems((prevCart) => {
+        let cartData = structuredClone(prevCart);
+        cartData[itemId] = (cartData[itemId] || 0) + 1;
+        return cartData;
+      });
+    } catch (error) {
+      console.log(error);
+      const errorMessage =
+        error.response?.data?.message || "Error adding to cart";
+      setTimeout(() => toast.error(errorMessage), 0); // ✅ Ensures toast displays
     }
   };
 
@@ -87,11 +89,17 @@ const ShopContextProvider = (props) => {
           { itemId, quantity },
           { headers: { token } }
         );
+        // Return true to indicate success
+        return true;
       } catch (error) {
-        console.log(error);
-        toast.error(error.message);
+        // Revert the cart state since the update failed
+        setCartItems(cartItems);
+        const errorMessage = error.response?.data?.message || error.message;
+        toast.error(errorMessage);
+        throw error; // Throw the error to be caught by the component
       }
     }
+    return true; // Return true for cases where token is not present
   };
 
   const getUserCart = async (token) => {
@@ -106,7 +114,9 @@ const ShopContextProvider = (props) => {
       }
     } catch (error) {
       console.log(error);
-      toast.error(error.message);
+      const errorMessage =
+        error.response?.data?.message || "Error adding to cart";
+      toast.error(errorMessage);
     }
   };
 

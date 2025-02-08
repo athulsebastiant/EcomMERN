@@ -11,7 +11,7 @@ const Cart = () => {
   const { currency, cartItems, productList, updateQuantity, navigate } =
     useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
-
+  const [hasCartError, setHasCartError] = useState(false);
   useEffect(() => {
     if (productList.length > 0) {
       const tempData = [];
@@ -37,6 +37,16 @@ const Cart = () => {
     console.log("CartData state:", cartData);
   }, [cartData]);
 
+  const handleQuantityChange = async (itemId, value) => {
+    if (value === "" || value === "0") return;
+
+    try {
+      await updateQuantity(itemId, Number(value));
+      setHasCartError(false); // Clear error state on successful update
+    } catch (error) {
+      setHasCartError(true); // Set error state if update fails
+    }
+  };
   return (
     <div className="CartMainDiv">
       <div className="CartSecDiv">
@@ -75,11 +85,7 @@ const Cart = () => {
                 </div>
               </div>
               <input
-                onChange={(e) =>
-                  e.target.value === "" || e.target.value === "0"
-                    ? null
-                    : updateQuantity(item._id, Number(e.target.value))
-                }
+                onChange={(e) => handleQuantityChange(item._id, e.target.value)}
                 className="qtyBox"
                 type="number"
                 min={1}
@@ -98,7 +104,15 @@ const Cart = () => {
           <CartTotal />
           <div style={{ width: "100%", textAlign: "end" }}></div>
           <Button
-            onClick={() => navigate("/place-order")}
+            onClick={(e) => {
+              if (hasCartError) {
+                e.preventDefault();
+                toast.error("Please fix cart errors before proceeding");
+                return;
+              }
+              navigate("/place-order");
+            }}
+            disabled={hasCartError || cartData.length === 0}
             variant="contained"
             sx={{
               width: "275px",

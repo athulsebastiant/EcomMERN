@@ -13,11 +13,13 @@ import Searchbar from "./components/Searchbar";
 import Orders from "./pages/Orders";
 import UserProfile from "./pages/UserProfile";
 import ProtectedRoute from "./ProtectedRoute";
+import { ToastContainer } from "react-toastify";
 export const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const App = () => {
   return (
     <div className="MainDivApp">
+      <ToastContainer />
       <Navbar />
       <Searchbar />
       <Routes>

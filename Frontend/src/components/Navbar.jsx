@@ -18,7 +18,9 @@ const Navbar = () => {
   };
   return (
     <div className="MainNav">
-      <img className="logo" src={elcorpLogo} alt="logo" />
+      <Link to="/">
+        <img className="logo" src={elcorpLogo} alt="logo" />
+      </Link>
       <ul className="PageList">
         <NavLink to="/" className="NavlinkNB">
           <p>HOME</p>
