@@ -18,11 +18,18 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Company</h3>
           <ul className="footer-links">
-            <Link to="/">
+            <Link to="/" style={{ textDecoration: "none" }}>
               <li>Home</li>
             </Link>
-            <Link to="/all-products">
+            <Link to="/all-products" style={{ textDecoration: "none" }}>
               <li>All Products</li>
+            </Link>
+
+            <Link to="/privacy-policy" style={{ textDecoration: "none" }}>
+              <li>Privacy Policy</li>
+            </Link>
+            <Link to="/shipping-policy" style={{ textDecoration: "none" }}>
+              <li>Shipping Policy</li>
             </Link>
           </ul>
         </div>

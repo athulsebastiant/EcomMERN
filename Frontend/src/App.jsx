@@ -15,6 +15,8 @@ import UserProfile from "./pages/UserProfile";
 import ProtectedRoute from "./ProtectedRoute";
 import { ToastContainer } from "react-toastify";
 import Footer from "./components/Footer";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import ShippingPolicy from "./pages/ShippingPolicy";
 export const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const App = () => {
@@ -24,20 +26,14 @@ const App = () => {
       <Navbar />
       <Searchbar />
       <Routes>
-        <Route path="/" element={<ProtectedRoute element={<Home />} />} />
-        <Route
-          path="/product/:productId"
-          element={<ProtectedRoute element={<Product />} />}
-        />
+        <Route path="/" element={<Home />} />
+        <Route path="/product/:productId" element={<Product />} />
         <Route path="/cart" element={<ProtectedRoute element={<Cart />} />} />
         <Route
           path="/place-order"
           element={<ProtectedRoute element={<PlaceOrder />} />}
         />
-        <Route
-          path="/all-products"
-          element={<ProtectedRoute element={<AllProducts />} />}
-        />
+        <Route path="/all-products" element={<AllProducts />} />
         <Route
           path="/orders"
           element={<ProtectedRoute element={<Orders />} />}
@@ -48,6 +44,8 @@ const App = () => {
         />
         {/* Public Routes */}
         <Route path="/login" element={<Login />} />{" "}
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/shipping-policy" element={<ShippingPolicy />} />
       </Routes>
       <Footer />
     </div>

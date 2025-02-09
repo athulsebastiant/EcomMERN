@@ -11,7 +11,7 @@ const Product = () => {
   const [list, setList] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(false);
   const [image, setImage] = useState("");
-  const { currency, addToCart } = useContext(ShopContext);
+  const { currency, addToCart, token, navigate } = useContext(ShopContext);
   const fetchList = async () => {
     try {
       const response = await axios.get(backendUrl + "/api/product/list");
@@ -90,17 +90,32 @@ const Product = () => {
         <p style={{ marginTop: "1.25rem", width: "80%" }}>
           {selectedProduct.description}
         </p>
-        <Button
-          onClick={() => addToCart(selectedProduct._id)}
-          variant="contained"
-          sx={{
-            backgroundColor: "#00796b",
-            "&:hover": { backgroundColor: "#004d40" },
-            color: "#ffffff",
-          }}
-        >
-          ADD TO CART
-        </Button>
+        {token && (
+          <Button
+            onClick={() => addToCart(selectedProduct._id)}
+            variant="contained"
+            sx={{
+              backgroundColor: "#00796b",
+              "&:hover": { backgroundColor: "#004d40" },
+              color: "#ffffff",
+            }}
+          >
+            ADD TO CART
+          </Button>
+        )}
+        {!token && (
+          <Button
+            onClick={() => navigate("/login")}
+            variant="contained"
+            sx={{
+              backgroundColor: "#00796b",
+              "&:hover": { backgroundColor: "#004d40" },
+              color: "#ffffff",
+            }}
+          >
+            Login to add this product to your cart
+          </Button>
+        )}
         <hr style={{ marginTop: "9rem" }} />
       </div>
     </div>

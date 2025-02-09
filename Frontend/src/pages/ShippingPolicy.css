@@ -1,0 +1,48 @@
+.shipping-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+.shipping-heading {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.shipping-date {
+    text-align: center;
+    font-size: 14px;
+    color: #b2b569;
+    margin-bottom: 30px;
+}
+
+.shipping-section {
+    margin-bottom: 25px;
+}
+
+.shipping-section h2 {
+    font-size: 20px;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.shipping-section p,
+.shipping-section ul {
+    font-size: 16px;
+}
+
+.shipping-section ul {
+    padding-left: 20px;
+}
+
+.shipping-section ul li {
+    margin-bottom: 5px;
+}
+
+.shipping-section p strong {
+    color: #000;
+}

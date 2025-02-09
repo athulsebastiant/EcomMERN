@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import ReactSlider from "react-slider";
+
 import axios from "axios";
 import { backendUrl } from "../App";
 import { useState, useEffect } from "react";
@@ -16,6 +18,8 @@ const AllProducts = () => {
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
   const [sortType, setSortType] = useState("Relevant");
+  const [priceRange, setPriceRange] = useState([0, 800000]); // Adjust max price as needed
+
   const fetchList = async () => {
     try {
       const response = await axios.get(backendUrl + "/api/product/list");
@@ -92,6 +96,12 @@ const AllProducts = () => {
       setSelectedBrand((prev) => [...prev, e.target.value]);
     }
   };
+  const handlePriceChange = (e) => {
+    const { name, value } = e.target;
+    setPriceRange((prev) =>
+      name === "min" ? [parseInt(value), prev[1]] : [prev[0], parseInt(value)]
+    );
+  };
 
   const applyFilter = () => {
     let productsCopy = list.slice();
@@ -115,6 +125,9 @@ const AllProducts = () => {
         selectedBrand.includes(item.brand)
       );
     }
+    productsCopy = productsCopy.filter(
+      (item) => item.price >= priceRange[0] && item.price <= priceRange[1]
+    );
     setFilterProducts(productsCopy);
   };
 
@@ -135,7 +148,7 @@ const AllProducts = () => {
 
   useEffect(() => {
     applyFilter();
-  }, [selectedCategory, selectedBrand, search]);
+  }, [selectedCategory, selectedBrand, search, priceRange]);
 
   useEffect(() => {
     sortProduct();
@@ -168,6 +181,23 @@ const AllProducts = () => {
                 {category.name}
               </p>
             ))}
+          </div>
+        </div>
+        <div className="categoryFil">
+          <p className="catText">PRICE RANGE</p>
+          <ReactSlider
+            className="priceSlider"
+            thumbClassName="priceSlider-thumb"
+            trackClassName="priceSlider-track"
+            min={0}
+            max={800000}
+            value={priceRange}
+            onChange={setPriceRange}
+            minDistance={500}
+          />
+          <div className="priceLabels">
+            <span>₹{priceRange[0]}</span>
+            <span>₹{priceRange[1]}</span>
           </div>
         </div>
         {/*SubCategory Filter*/}

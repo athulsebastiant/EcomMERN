@@ -130,6 +130,11 @@
     color: #007BFF;
 }
 
+.logout:hover {
+    background: #eacaca;
+    color: #d11919;
+}
+
 /* Shopping cart badge */
 .cartCount {
     position: absolute;

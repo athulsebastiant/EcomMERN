@@ -81,21 +81,27 @@ const Navbar = () => {
                   onClick={() => navigate("/orders")}
                   className="dropdown-item"
                 >
-                  Orders
+                  My Orders
                 </div>
-                <div onClick={logout} className="dropdown-item">
+                <div onClick={logout} className="dropdown-item logout">
                   Logout
                 </div>
               </div>
             )}
           </div>
         )}
-
-        <Link to="/cart" style={{ position: "relative" }}>
-          <ShoppingCartIcon sx={{ color: "#007BFF" }} />
-          <p className="cartCount">{getCartCount()}</p>
-        </Link>
+        {token && (
+          <Link to="/cart" style={{ position: "relative" }}>
+            <ShoppingCartIcon sx={{ color: "#007BFF" }} />
+            <p className="cartCount">{getCartCount()}</p>
+          </Link>
+        )}
       </div>
+      {!token && (
+        <Link to="/cart" style={{ color: "green", textDecoration: "none" }}>
+          <b>Login</b>
+        </Link>
+      )}
     </div>
   );
 };
