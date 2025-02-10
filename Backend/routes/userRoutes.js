@@ -6,6 +6,7 @@ import {
   adminLogin,
   editUser,
   getUserDetails,
+  listUsers,
 } from "../controllers/userController.js";
 
 const userRouter = express.Router();
@@ -19,4 +20,6 @@ userRouter.post("/admin", adminLogin);
 userRouter.patch("/edit-user", authUser, editUser);
 
 userRouter.post("/get-user", authUser, getUserDetails);
+
+userRouter.get("/get-users", listUsers);
 export default userRouter;

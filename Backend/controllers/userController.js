@@ -204,4 +204,22 @@ const getUserDetails = async (req, res) => {
     });
   }
 };
-export { loginUser, registerUser, adminLogin, editUser, getUserDetails };
+
+const listUsers = async (req, res) => {
+  try {
+    const users = await User.find({});
+
+    res.json({ success: true, users });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
+export {
+  loginUser,
+  registerUser,
+  adminLogin,
+  editUser,
+  getUserDetails,
+  listUsers,
+};

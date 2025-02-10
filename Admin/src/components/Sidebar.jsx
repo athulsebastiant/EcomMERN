@@ -19,11 +19,14 @@ import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import EditIcon from "@mui/icons-material/Edit";
 import AddIcon from "@mui/icons-material/Add";
 import PaidIcon from "@mui/icons-material/Paid";
+import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
+import PersonIcon from "@mui/icons-material/Person";
 import "./Sidebar.css";
 const Sidebar = () => {
   const [productsOpen, setProductsOpen] = useState(false);
   const [categoryOpen, setCategoryOpen] = useState(false);
   const [orderOpen, setOrderOpen] = useState(false);
+  const [userOpen, setUserOpen] = useState(false);
   return (
     <div className="SidebarPartition">
       <div className="CombinedSidebar">
@@ -140,6 +143,34 @@ const Sidebar = () => {
                   }}
                 />
                 <p>Manage Orders</p>
+              </NavLink>
+            </List>
+          </Collapse>
+
+          <ListItemButton
+            onClick={() => setUserOpen(!userOpen)}
+            className="dropdown-header"
+            sx={{ color: "#1eaab0" }}
+          >
+            <ListItemIcon sx={{ color: "#1eaab0" }}>
+              <PersonIcon />
+            </ListItemIcon>
+            <ListItemText primary="Customers" />
+            {userOpen ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+
+          <Collapse in={userOpen} timeout="auto" unmountOnExit>
+            <List component="div" className="nested-list">
+              <NavLink to={"/users"} className="custom-navlink">
+                <SupervisorAccountIcon
+                  sx={{
+                    fontSize: 30,
+                    width: "1.25 rem",
+                    height: "1.25 rem",
+                    color: "purple",
+                  }}
+                />
+                <p>All Customers</p>
               </NavLink>
             </List>
           </Collapse>
