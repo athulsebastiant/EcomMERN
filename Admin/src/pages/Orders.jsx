@@ -11,7 +11,7 @@ import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
 import "./Orders.css";
 const Orders = ({ token }) => {
-  const currency = "$";
+  const currency = "₹";
   const [orders, setOrders] = useState([]);
   const fetchAllOrders = async () => {
     if (!token) {

@@ -1,0 +1,33 @@
+.customers-container {
+    padding: 20px;
+    background-color: #222;
+    color: #ddd;
+}
+
+.table-title {
+    color: #ddd;
+    margin-bottom: 10px;
+}
+
+.customers-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.customers-table th,
+.customers-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.customers-table thead {
+    background-color: #f2f2f2;
+    color: black;
+}
+
+.customer-row:hover {
+    background-color: #333;
+    transition: 0.3s;
+}

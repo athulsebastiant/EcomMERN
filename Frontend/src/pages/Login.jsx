@@ -96,7 +96,7 @@ const Login = () => {
 
           <TextField
             id="outlined-basic"
-            label="PhoneNumber Number"
+            label="Phone Number"
             variant="outlined"
             type="number"
             required

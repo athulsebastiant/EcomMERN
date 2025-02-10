@@ -1,6 +1,7 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import { useState } from "react";
 import axios from "axios";
@@ -9,6 +10,7 @@ import { toast } from "react-toastify";
 const Login = ({ setToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
   const onSubmitHandler = async (e) => {
     try {
       e.preventDefault();
@@ -21,6 +23,7 @@ const Login = ({ setToken }) => {
 
       if (response.data.success) {
         setToken(response.data.token);
+        navigate("/");
       } else {
         toast.error(response.data.message);
       }

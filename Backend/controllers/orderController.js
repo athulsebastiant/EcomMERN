@@ -119,6 +119,21 @@ const updateStatus = async (req, res) => {
   }
 };
 
+const getUserOrderStats = async (req, res) => {
+  try {
+    const { userId } = req.body;
+
+    const orders = await orderModel.find({ userId });
+    const totalOrders = orders.length;
+    const totalAmount = orders.reduce((sum, order) => sum + order.amount, 0);
+
+    res.json({ success: true, totalOrders, totalAmount });
+  } catch (error) {
+    console.error("Error fetching user order stats:", error);
+    res.status(500).json({ success: false, message: "Internal Server Error" });
+  }
+};
+
 export {
   placeOrder,
   placeOrderRazorPay,
@@ -126,4 +141,5 @@ export {
   verifyRazorpay,
   userOrders,
   updateStatus,
+  getUserOrderStats,
 };
