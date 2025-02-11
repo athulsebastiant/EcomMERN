@@ -60,6 +60,7 @@ const PlaceOrder = () => {
         } catch (error) {
           console.log(error);
           toast.error(error);
+          navigate("/orders");
         }
       },
     };
