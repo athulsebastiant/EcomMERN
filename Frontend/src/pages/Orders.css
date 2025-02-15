@@ -188,3 +188,17 @@
 .order-item:hover {
     animation: softFloat 1.5s ease-in-out infinite;
 }
+
+.invoice-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.invoice-button:hover {
+    background-color: #45a049;
+}

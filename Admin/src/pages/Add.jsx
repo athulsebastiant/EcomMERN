@@ -193,6 +193,9 @@ const Add = ({ token }) => {
               color: "#ddd",
               opacity: 1,
             },
+            "& .MuiOutlinedInput-input": {
+              color: "#fff", // Makes the input text white
+            },
           }}
         />
       </div>
@@ -225,6 +228,9 @@ const Add = ({ token }) => {
             "& .MuiOutlinedInput-input::placeholder": {
               color: "#ddd",
               opacity: 1,
+            },
+            "& .MuiOutlinedInput-input": {
+              color: "#fff", // Makes the input text white
             },
           }}
         />
@@ -259,6 +265,9 @@ const Add = ({ token }) => {
             "& .MuiOutlinedInput-input::placeholder": {
               color: "#ddd",
               opacity: 1,
+            },
+            "& .MuiOutlinedInput-input": {
+              color: "#fff", // Makes the input text white
             },
           }}
           required
@@ -295,6 +304,9 @@ const Add = ({ token }) => {
               color: "#ddd",
               opacity: 1,
             },
+            "& .MuiOutlinedInput-input": {
+              color: "#fff", // Makes the input text white
+            },
           }}
         />
       </div>
@@ -329,6 +341,9 @@ const Add = ({ token }) => {
               color: "#ddd",
               opacity: 1,
             },
+            "& .MuiOutlinedInput-input": {
+              color: "#fff", // Makes the input text white
+            },
           }}
         />
       </div>
@@ -358,6 +373,9 @@ const Add = ({ token }) => {
             "& .MuiOutlinedInput-input::placeholder": {
               color: "#ddd",
               opacity: 1,
+            },
+            "& .MuiOutlinedInput-input": {
+              color: "#fff", // Makes the input text white
             },
           }}
           required
