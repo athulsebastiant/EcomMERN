@@ -146,6 +146,18 @@ const Orders = ({ token }) => {
                         Out for delivery
                       </MenuItem>
                       <MenuItem value={"Delivered"}>Delivered</MenuItem>
+                      <MenuItem
+                        value={"Order Cancelled"}
+                        sx={{
+                          color: "#fff",
+                          backgroundColor: "red",
+                          "&:hover": {
+                            backgroundColor: "darkred",
+                          },
+                        }}
+                      >
+                        Order Cancelled
+                      </MenuItem>
                     </Select>
                   </FormControl>
                 </Box>
